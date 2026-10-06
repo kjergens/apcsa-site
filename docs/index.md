@@ -16,10 +16,10 @@ This site is a work in progress — pages marked "Scaffold placeholder" haven't 
 | [1.7 Methods with Parameters](unit1/notes_07_methods_with_parameters.md) |
 | [1.9 Writing Methods](unit1/notes_09_writing_methods.md) |
 | [1.10 Programming Style and Feedback](unit1/notes_10_programming_style_and_feedback.md) |
-| [1.11 Debugging Strategies](unit1/notes_11_debugging_strategies.md) |
 | [1.12 No-Argument Constructors](unit1/notes_12_no_argument_constructors.md) |
 | [1.13 Parameterized Constructors](unit1/notes_13_parameterized_constructors.md) |
 | [1.14 User Input](unit1/notes_14_user_input.md) |
+| [Putting It Together: Composition and Delegation](unit1/notes_14b_composition_and_delegation.md) |
 | [1.16 Variables](unit1/notes_16_variables.md) |
 | [1.17 Operators and Expressions](unit1/notes_17_operators_and_expressions.md) |
 | [1.18 Casting and Range of Variables](unit1/notes_18_casting_and_range_of_variables.md) |
