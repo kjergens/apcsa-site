@@ -13,7 +13,6 @@ This is review — you've been declaring variables since CS1. This page is a fas
 | `int` | whole numbers | `int year = 2010;` |
 | `double` | decimal numbers | `double score = 8.8;` |
 | `boolean` | `true` or `false` | `boolean isReleased = true;` |
-| `char` | a single character, in single quotes | `char grade = 'B';` |
 
 `String` isn't on this list — it's a reference type, not a primitive, even though it acts a lot like one day-to-day. See 1.19 for why that distinction matters.
 

@@ -1,6 +1,6 @@
 # 1.18 Casting and Range of Variables
 
-**CED Topics:** 1.5
+**CED Topics:** 1.3, 1.4, 1.5
 
 ---
 
@@ -60,7 +60,16 @@ double score = 8.8;
 int scoreAsInt = (int) score;   // narrowing, must be explicit — 8
 ```
 
-**The trap: `(int)` truncates, it does not round.** `(int) 8.8` is `8`, not `9` — the decimal portion is simply chopped off, regardless of whether it was closer to the next whole number. `(int) 8.99999` is still `8`. If you actually want rounding, you need `Math.round(...)` instead of a cast.
+**The trap: `(int)` truncates, it does not round.** `(int) 8.8` is `8`, not `9` — the decimal portion is simply chopped off, regardless of whether it was closer to the next whole number. `(int) 8.99999` is still `8`.
+
+**`Math.round()` is not on the AP exam's allowed subset** — don't reach for it. The technique you're actually expected to know is the casting trick: add `0.5` before truncating, for positive numbers:
+
+```java
+double score = 8.8;
+int rounded = (int) (score + 0.5);   // 9
+```
+
+Adding `0.5` first pushes any value with a decimal of `.5` or higher over the next whole number, so truncating afterward lands on the correctly rounded result. `8.8 + 0.5 = 9.3`, and `(int) 9.3` truncates to `9` — correctly rounded. Try it on `8.3`: `8.3 + 0.5 = 8.8`, truncates to `8` — also correct, since `8.3` should round down.
 
 ---
 
@@ -77,6 +86,37 @@ System.out.println((double) totalScore / movieCount); // 8.666666666666666
 
 Casting *either* operand to `double` before the division forces the whole expression to compute as a `double` — the division only happens once the types have already been decided, so the cast has to come before it, not after.
 
+**Where the parentheses go completely changes the answer — this is a major AP trap.** Compare these two, which look almost identical:
+
+```java
+int totalScore = 26;
+int movieCount = 3;
+
+System.out.println((double) totalScore / movieCount);    // 8.666666666666666 — correct
+System.out.println((double) (totalScore / movieCount));  // 8.0 — wrong!
+```
+
+A cast binds to the single value immediately next to it — no parentheses needed around just `totalScore`. So `(double) totalScore / movieCount` casts `totalScore` to a `double` *first*, and the division that follows is already `double / int`, which computes as real division.
+
+Wrapping the division in its own parentheses — `(double) (totalScore / movieCount)` — forces `totalScore / movieCount` to run *first*, entirely in `int`, truncating to `8` before the cast ever happens. Casting `8` to a `double` afterward just gives you `8.0` — the decimal information was already thrown away one step earlier, and the cast can't bring it back.
+
+---
+
+## 6. Mixing Numbers and Strings with `+`
+
+The `+` operator does two completely different jobs depending on its operands: between two numbers it adds; between a `String` and anything else, it concatenates (glues them together as text). Java evaluates a chain of `+` operators strictly **left to right**, which means *where* a `String` first shows up in the expression determines everything that happens after it.
+
+```java
+System.out.println("Score: " + 5 + 5);   // "Score: 55"
+System.out.println(5 + 5 + " Score");    // "10 Score"
+```
+
+In the first line, `"Score: "` is a `String` from the very start, so every `+` after it concatenates: `"Score: " + 5` becomes the text `"Score: 5"`, and adding another `5` glues on another `"5"` — giving `"Score: 55"`, not `"Score: 10"`.
+
+In the second line, there's no `String` yet when Java reaches the first `+` — `5 + 5` adds numerically to `10`. *Then* `+ " Score"` concatenates that `10` onto the string, giving `"10 Score"`.
+
+Same three values, same operator, two different results — entirely because of where the `String` sits in the expression.
+
 ---
 
 ## Common Errors
@@ -85,5 +125,7 @@ Casting *either* operand to `double` before the division forces the whole expres
 |---|---|---|
 | A large calculation produces a nonsense negative number | Integer overflow — the true result exceeded `Integer.MAX_VALUE` and wrapped around | Use a `long` if the values could get that large, or redesign the calculation |
 | `0.1 + 0.2 != 0.3` | Roundoff error — `double` stores an approximation, not an exact value | Never compare `double`s with `==`; check if they're within a small tolerance of each other |
-| `(int) 8.99` evaluates to `8`, not `9` | Casting truncates, it doesn't round | Use `Math.round(...)` if you actually want rounding |
+| `(int) 8.99` evaluates to `8`, not `9` | Casting truncates, it doesn't round | Add `0.5` before truncating: `(int) (x + 0.5)` (positive numbers only) — `Math.round()` isn't on the AP subset |
 | `5 / 2` evaluates to `2`, not `2.5` | Both operands are `int`, so integer division truncates before the result is ever stored | Cast at least one operand to `double` *before* the division happens |
+| `(double) (totalScore / movieCount)` gives a "whole-looking" decimal like `8.0` | The division inside the parentheses ran first, as `int / int`, truncating — the cast afterward can't recover the lost decimal | Cast a single operand *before* the division: `(double) totalScore / movieCount` |
+| `"Score: " + 5 + 5` prints `"Score: 55"` instead of `"Score: 10"` | `+` evaluates left to right; once a `String` appears, every `+` after it concatenates instead of adding | Put the numeric addition in parentheses first if you want it computed before concatenating: `"Score: " + (5 + 5)` |
