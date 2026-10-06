@@ -123,7 +123,7 @@ Same three values, same operator, two different results — entirely because of 
 
 | Error | What's actually happening | Fix |
 |---|---|---|
-| A large calculation produces a nonsense negative number | Integer overflow — the true result exceeded `Integer.MAX_VALUE` and wrapped around | Use a `long` if the values could get that large, or redesign the calculation |
+| A large calculation produces a nonsense negative number | Integer overflow — the true result exceeded `Integer.MAX_VALUE` and wrapped around | `long` would fix this in real Java, but it's not on the AP subset — redesign the calculation to stay within `int`'s range instead (e.g., divide before multiplying, or check intermediate values) |
 | `0.1 + 0.2 != 0.3` | Roundoff error — `double` stores an approximation, not an exact value | Never compare `double`s with `==`; check if they're within a small tolerance of each other |
 | `(int) 8.99` evaluates to `8`, not `9` | Casting truncates, it doesn't round | Add `0.5` before truncating: `(int) (x + 0.5)` (positive numbers only) — `Math.round()` isn't on the AP subset |
 | `5 / 2` evaluates to `2`, not `2.5` | Both operands are `int`, so integer division truncates before the result is ever stored | Cast at least one operand to `double` *before* the division happens |
