@@ -112,30 +112,21 @@ A Java double reserves 64 bits: 1 Sign bit, 11 Exponent bits, and 52 Mantissa (b
 
 !!! attention
     1. Write either **Stack** or **Heap** for each:
-
-    * Stores the actual primitive values (e.g., `int x = 5;`).
-    * Stores the actual data of an Object or array (non-primitive data).
-    * Stores the reference variable (the pointer or "memory address shortcut") to an object.
+        * Stores the actual primitive values (e.g., `int x = 5;`).
+        * Stores the actual data of an Object or array (non-primitive data).
+        * Stores the reference variable (the pointer or "memory address shortcut") to an object.
+    - `int score = 95;` is in a program.
+        * How many bits of memory are allocated for the variable `score`?  
+        * In what format is the number `95` actually saved at that allocated memory address?  
+    - Evaluate the following code segment and explain why:
     
-    - Visualizing Binary Space
-    `int score = 95;` is in a program.
-
-    * **A.** How many bits of memory are allocated for the variable `score`?  
-    * **B.** In what format is the number `95` actually saved at that allocated memory address?  
-
-
-    - Evaluate the following code segment:
-
     ```java
     double value1 = 0.1;
     double value2 = 0.2;
     System.out.println(value1 + value2 == 0.3);
-    ```
-    
-    * **Output (True or False):** 
-    * Explain why Java evaluates this expression this way based on how decimal values are stored in binary memory.  
+    ```  
 
-    - Trace the values of the variables throughout execution to determine their final state.
+    - What will be the final value of `a` and `str1` after this code runs?
 
     ```java
     int a = 10;
@@ -147,5 +138,3 @@ A Java double reserves 64 bits: 1 Sign bit, 11 Exponent bits, and 52 Mantissa (b
     str2 = new String("Banana");
     ```
 
-      * **Final value of variable `a`:** 
-      * **Final value of variable `str1`:** 
