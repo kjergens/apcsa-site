@@ -129,3 +129,38 @@ Same three values, same operator, two different results — entirely because of 
 | `5 / 2` evaluates to `2`, not `2.5` | Both operands are `int`, so integer division truncates before the result is ever stored | Cast at least one operand to `double` *before* the division happens |
 | `(double) (totalScore / movieCount)` gives a "whole-looking" decimal like `8.0` | The division inside the parentheses ran first, as `int / int`, truncating — the cast afterward can't recover the lost decimal | Cast a single operand *before* the division: `(double) totalScore / movieCount` |
 | `"Score: " + 5 + 5` prints `"Score: 55"` instead of `"Score: 10"` | `+` evaluates left to right; once a `String` appears, every `+` after it concatenates instead of adding | Put the numeric addition in parentheses first if you want it computed before concatenating: `"Score: " + (5 + 5)` |
+
+## Homework 1.8
+
+!!!attention
+
+  ### 1. Implicit vs. Explicit Operations
+  Identify the type of compilation behavior for each line. Write **Widening** (automatic conversion), **Narrowing**   (requires explicit cast), or **Compile Error**.
+  * `double x = 40;` → `____________________`
+  * `int y = 5.5;` → `____________________`
+  * `int z = (int) 8.9;` → `____________________`
+  
+  ### 2. Mixed-Type Precedence
+  Evaluate the following code segment. Determine the exact numeric value assigned to `result`.
+  
+  ```java
+  int a = 10;
+  int b = 4;
+  double c = 2.0;
+  double result = a / b + (int) c / b + (double) (a % b);
+  ```
+  
+  * **Final Value of result:** `__________`
+
+  ### 3. Math-less Rounding Hacks
+  * **A.** Write a single line of Java code that rounds a positive double variable named `measurement` to its nearest whole `int` without using any methods from the `Math` class.  
+
+
+  * **B.** Construct a Java `if/else` block that correctly rounds both positive and negative double values stored in a variable `x` to their nearest `int`.
+
+
+  ### 4. Boundary Breach
+  Without running code, compute the exact decimal integer produced when the following statement executes in Java:
+  
+  ```java
+  int value = (Integer.MAX_VALUE * 2) + 2;
