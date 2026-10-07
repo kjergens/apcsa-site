@@ -92,7 +92,6 @@ When you're not sure what order something evaluates in, add parentheses — it c
     int result = 5 + 12 / 3 * 2 - 7 % 4;
     ```
   
-  
   - List all the values that `val` will hold sequentially throughout the execution of these two lines of code. Then calculate the final value of `total`.
   
     ```java
@@ -100,7 +99,6 @@ When you're not sure what order something evaluates in, add parentheses — it c
     int total = val++ + val / 2 - --val;
     ```
 
-  
   - Predict the exact integer outputs of the following independent modulo expressions:
     * `12 % 5` = `_____`
     * `5 % 12` = `_____`
