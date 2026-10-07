@@ -12,7 +12,7 @@
 | `double` | decimal numbers | `double score = 8.8;` |
 | `boolean` | `true` or `false` | `boolean isReleased = true;` |
 
-`String` isn't on this list — it's a reference type, not a primitive, even though it acts a lot like one day-to-day. See 1.19 for why that distinction matters.
+`String` isn't on this list — it's a reference type, not a primitive, even though it acts a lot like one day-to-day. See below for how String and other reference types are stored in memory.
 
 ---
 
