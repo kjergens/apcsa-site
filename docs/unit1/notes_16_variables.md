@@ -65,10 +65,10 @@ The stack actually stores data in binary. Each data type is allocated a correspo
 
 Each bit position from right to left represents a positive power of 2 (\(2^0, 2^1, 2^2\), etc.).
 
-• The rightmost bit represents \(+2^0 = 1\)
-• The second bit represents \(+2^1 = 2\)
-• The 31st bit represents \(+2^{30} = 1,073,741,824\)
-• The 32nd (leftmost) bit represents \(-2^{31} = -2,147,483,648\)
+* The rightmost bit represents \(+2^0 = 1\)
+* The second bit represents \(+2^1 = 2\)
+* The 31st bit represents \(+2^{30} = 1,073,741,824\)
+* The 32nd (leftmost) bit represents \(-2^{31} = -2,147,483,648\)
 
 **Doing the Math**
 
