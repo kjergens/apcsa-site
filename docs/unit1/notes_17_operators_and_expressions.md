@@ -72,7 +72,7 @@ When you're not sure what order something evaluates in, add parentheses — it c
 | Tracing `int a = x++;` and assuming `a` gets the *new* value of `x` | Postfix uses the value first, increments second | Prefix (`++x`) changes first; postfix (`x++`) changes after it's used |
 | Assuming `20 / 4 * 2` groups as `20 / (4 * 2)` | `/` and `*` share precedence and evaluate left to right, not by "division first" | When in doubt, add parentheses to make the intended order explicit |
 
-## Homework 1.7
+## Homework 1.17 Operators and Expressions
 
 !!! attention
 
