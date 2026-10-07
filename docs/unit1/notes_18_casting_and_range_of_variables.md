@@ -134,14 +134,12 @@ Same three values, same operator, two different results — entirely because of 
 
 !!! attention
 
-    **1.8 Casting and Range of Values**
-
-    Identify the type of compilation behavior for each line. Write **Widening** (automatic conversion), **Narrowing**   (requires explicit cast), or **Compile Error**.
-      1. `double x = 40;` → `____________________`
-      2.  `int y = 5.5;` → `____________________`
-      3. `int z = (int) 8.9;` → `____________________`
+    1. Identify the type of compilation behavior for each line. Write **Widening** (automatic conversion), **Narrowing**   (requires explicit cast), or **Compile Error**.
+      <br>a. `double x = 40;` → `____________________`
+      <br>b.  `int y = 5.5;` → `____________________`
+      <br>c. `int z = (int) 8.9;` → `____________________`
   
-    4. Evaluate the following code segment. Determine the exact numeric value assigned to `result`.
+    2. Evaluate the following code segment. Determine the exact numeric value assigned to `result`.
   
     ```java
     int a = 10;
@@ -150,10 +148,10 @@ Same three values, same operator, two different results — entirely because of 
     double result = a / b + (int) c / b + (double) (a % b);
     ```
 
-    5. Write a single line of Java code that rounds a positive double variable named `measurement` to its nearest whole `int` without using any methods from the `Math` class.  
-    6. Construct a Java `if/else` block that correctly rounds both positive and negative double values stored in a variable `x` to their nearest `int`.
+    3. Write a single line of Java code that rounds a positive double variable named `measurement` to its nearest whole `int` without using any methods from the `Math` class.  
+    4. Construct a Java `if/else` block that correctly rounds both positive and negative double values stored in a variable `x` to their nearest `int`.
 
-    7. Without running code, compute the exact decimal integer produced when the following statement executes in Java:
+    5. Without running code, compute the exact decimal integer produced when the following statement executes in Java:
   
     ```java
     int value = (Integer.MAX_VALUE * 2) + 2;
