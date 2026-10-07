@@ -111,3 +111,44 @@ A Java double reserves 64 bits: 1 Sign bit, 11 Exponent bits, and 52 Mantissa (b
 ## Homework: 1.16 Variables and Data Types
 
 !!! attention
+### 1. Conceptual Match: Memory Allocation
+Match each description to its correct memory storage destination in Java. Write either **Stack** or **Heap** in the blank provided.
+
+* Stores the actual primitive values (e.g., `int x = 5;`).
+* Stores the actual data of an Object or array (non-primitive data).
+* Stores the reference variable (the pointer or "memory address shortcut") to an object.
+
+### 2. Visualizing Binary Space
+An explicit assignment statement `int score = 95;` is executed in a program.
+
+* **A.** How many bits of memory are allocated for the variable `score`?  
+* **B.** In what format is the number `95` actually saved at that allocated memory address?  
+
+
+### 3. Floating-Point Vulnerability
+Evaluate the following code segment:
+
+```java
+double value1 = 0.1;
+double value2 = 0.2;
+System.out.println(value1 + value2 == 0.3);
+```
+
+* **Output (True or False):** `__________`
+* **Explanation:** Explain why Java evaluates this expression this way based on how decimal values are stored in binary memory.  
+
+### 4. Reference Assignment Tracing
+Trace the values of the variables throughout execution to determine their final state.
+
+```java
+int a = 10;
+int b = a;
+b = 20;
+
+String str1 = new String("Apple");
+String str2 = str1;
+str2 = new String("Banana");
+```
+
+* **Final value of variable `a`:** 
+* **Final value of variable `str1`:** 
