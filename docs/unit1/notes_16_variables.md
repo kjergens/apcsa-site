@@ -57,7 +57,7 @@ A declared-but-uninitialized local variable can't be read — Java won't compile
 ### The Stack in Detail
 The stack actually stores data in binary. Each data type is allocated a corresponding size.
 
-![Stack Details](../../stackdetails.png)
+![Stack Details](../../stackdetail.png)
 
 ---
 
