@@ -147,5 +147,5 @@ A Java double reserves 64 bits: 1 Sign bit, 11 Exponent bits, and 52 Mantissa (b
     str2 = new String("Banana");
     ```
 
-  * **Final value of variable `a`:** 
-  * **Final value of variable `str1`:** 
+      * **Final value of variable `a`:** 
+      * **Final value of variable `str1`:** 
