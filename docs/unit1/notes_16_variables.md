@@ -111,44 +111,41 @@ A Java double reserves 64 bits: 1 Sign bit, 11 Exponent bits, and 52 Mantissa (b
 ## Homework: 1.16 Variables and Data Types
 
 !!! attention
-### 1. Conceptual Match: Memory Allocation
-Write either **Stack** or **Heap** for each:
+    1. Write either **Stack** or **Heap** for each:
 
-* Stores the actual primitive values (e.g., `int x = 5;`).
-* Stores the actual data of an Object or array (non-primitive data).
-* Stores the reference variable (the pointer or "memory address shortcut") to an object.
+    * Stores the actual primitive values (e.g., `int x = 5;`).
+    * Stores the actual data of an Object or array (non-primitive data).
+    * Stores the reference variable (the pointer or "memory address shortcut") to an object.
+    
+    - Visualizing Binary Space
+    `int score = 95;` is in a program.
 
-### 2. Visualizing Binary Space
-`int score = 95;` is in a program.
-
-* **A.** How many bits of memory are allocated for the variable `score`?  
-* **B.** In what format is the number `95` actually saved at that allocated memory address?  
+    * **A.** How many bits of memory are allocated for the variable `score`?  
+    * **B.** In what format is the number `95` actually saved at that allocated memory address?  
 
 
-### 3. Floating-Point Vulnerability
-Evaluate the following code segment:
+    - Evaluate the following code segment:
 
-```java
-double value1 = 0.1;
-double value2 = 0.2;
-System.out.println(value1 + value2 == 0.3);
-```
+    ```java
+    double value1 = 0.1;
+    double value2 = 0.2;
+    System.out.println(value1 + value2 == 0.3);
+    ```
+    
+    * **Output (True or False):** 
+    * Explain why Java evaluates this expression this way based on how decimal values are stored in binary memory.  
 
-* **Output (True or False):** 
-* Explain why Java evaluates this expression this way based on how decimal values are stored in binary memory.  
+    - Trace the values of the variables throughout execution to determine their final state.
 
-### 4. Reference Assignment Tracing
-Trace the values of the variables throughout execution to determine their final state.
+    ```java
+    int a = 10;
+    int b = a;
+    b = 20;
+    
+    String str1 = new String("Apple");
+    String str2 = str1;
+    str2 = new String("Banana");
+    ```
 
-```java
-int a = 10;
-int b = a;
-b = 20;
-
-String str1 = new String("Apple");
-String str2 = str1;
-str2 = new String("Banana");
-```
-
-* **Final value of variable `a`:** 
-* **Final value of variable `str1`:** 
+  * **Final value of variable `a`:** 
+  * **Final value of variable `str1`:** 
