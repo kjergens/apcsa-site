@@ -148,11 +148,11 @@ Same three values, same operator, two different results — entirely because of 
   double result = a / b + (int) c / b + (double) (a % b);
   ```
 
-    3. Write a single line of Java code that rounds a positive double variable named `measurement` to its nearest whole `int` without using any methods from the `Math` class.  
-    
-    4. Construct a Java `if/else` block that correctly rounds both positive and negative double values stored in a variable `x` to their nearest `int`.
+    3. Math-less Rounding Hacks
+      * **A.** Write a single line of Java code that rounds a positive double variable named `measurement` to its nearest whole `int` without using any methods from the `Math` class.  
+      * **B.** Construct a Java `if/else` block that correctly rounds both positive and negative double values stored in a variable `x` to their nearest `int`.
 
-    5. Without running code, compute the exact decimal integer produced when the following statement executes in Java:
+    4. Without running code, compute the exact decimal integer produced when the following statement executes in Java:
   
   ```java
   int value = (Integer.MAX_VALUE * 2) + 2;
