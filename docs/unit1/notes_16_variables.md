@@ -2,8 +2,6 @@
 
 **CED Topics:** 1.2
 
-This is review — you've been declaring variables since CS1. This page is a fast, precise recap, not a first introduction. (For what's actually happening in memory when you create one, and how reference types like objects behave differently from primitives, see [1.19 Printing Objects](notes_19_printing_objects.md) — that's the deep dive; this page stays at the surface, on purpose.)
-
 ---
 
 ## 1. The Primitive Types You Need
