@@ -77,28 +77,28 @@ When you're not sure what order something evaluates in, add parentheses — it c
 !!! attention
 
     1. Determine the final value of the variable `balance` after this code segment runs completely:
-  
+    
       ```java
       int balance = 50;
       balance /= 4;
       balance *= 3;
       balance %= 5;
       ```
-  
-    - Evaluate the mathematical expression and determine the exact integer value assigned to `result`. **Show your operator precedence steps.**
-  
+      
+    2. Evaluate the mathematical expression and determine the exact integer value assigned to `result`. **Show your operator precedence steps.**
+    
     ```java
     int result = 5 + 12 / 3 * 2 - 7 % 4;
     ```
-  
-    - List all the values that `val` will hold sequentially throughout the execution of these two lines of code. Then calculate the final value of `total`.
-  
+    
+    3. List all the values that `val` will hold sequentially throughout the execution of these two lines of code. Then calculate the final value of `total`.
+    
     ```java
     int val = 15;
     int total = val++ + val / 2 - --val;
     ```
-
-    - Predict the exact integer outputs of the following independent modulo expressions:
+    
+    4. Give the exact integer outputs of the following modulo expressions:
         * `12 % 5` = `_____`
         * `5 % 12` = `_____`
         * `-7 % 3` = `_____`
