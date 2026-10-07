@@ -49,6 +49,8 @@ A declared-but-uninitialized local variable can't be read — Java won't compile
 
 ## 4. Data in Memory
 
+### The Stack and the Heap
+
 ![Stack vs Heap](../../stackheap.png)
 
 - **Primitives** (int, double, boolean): These are local, lightweight variables. Their literal value is stored directly on the Stack. When you pass a primitive to a method, Java copies the raw value.
@@ -58,6 +60,33 @@ A declared-but-uninitialized local variable can't be read — Java won't compile
 The stack actually stores data in binary. Each data type is allocated a corresponding size.
 
 ![Stack Details](../../stackdetail.png)
+
+### How Integers Are Stored
+
+Each bit position from right to left represents a positive power of 2 (\(2^0, 2^1, 2^2\), etc.).
+
+• The rightmost bit represents \(+2^0 = 1\)
+• The second bit represents \(+2^1 = 2\)
+• The 31st bit represents \(+2^{30} = 1,073,741,824\)
+• The 32nd (leftmost) bit represents \(-2^{31} = -2,147,483,648\)
+
+**Doing the Math**
+
+To find the value of any binary number, you simply add up the weights of all the positions that have a 1.
+For your number:
+* 32nd bit is 1 \(\rightarrow -2,147,483,648\)
+* All other 31 bits are 0 \(\rightarrow 0\)
+\(\text{Total\ Value}=-2,147,483,648+0=\mathbf{-2,147,483,648}\)
+
+**How do you actually get 0?**
+
+Because of this math, the only way to get a value of zero in two's complement is if every single bit is zero (0000...0000).
+
+To represent -1, you turn on the massive negative bit and fill the rest with positive bits to pull it back up toward zero:
+
+\(-2,147,483,648+2^{30}+2^{29}+...+2^{0}=-1\)
+
+(Which looks like 11111111 11111111 11111111 11111111 in binary).
 
 ---
 
