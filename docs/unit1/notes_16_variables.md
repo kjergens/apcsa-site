@@ -65,8 +65,8 @@ Each bit position from right to left represents a positive power of 2 (\(2^0, 2^
 
 * The rightmost bit represents \(+2^0 = 1\)
 * The second bit represents \(+2^1 = 2\)
-* The 31st bit represents \(+2^{30} = 1,073,741,824\)
-* The 32nd (leftmost) bit represents \(-2^{31} = -2,147,483,648\)
+* The 31st bit represents \(+2^30 = 1,073,741,824\)
+* The 32nd (leftmost) bit represents \(-2^31 = -2,147,483,648\)
 
 **Doing the Math**
 
@@ -74,7 +74,7 @@ To find the value of any binary number, add up the weights of all the positions 
 For your number:
 
 * 32nd bit is 1 -> -2,147,483,648
-* All other 31 bits are 0 = -2,147,483,648 + 0 = -2,147,483,648}
+* All other 31 bits are 0 = -2,147,483,648 + 0 = -2,147,483,648
 
 **How do you actually get 0?**
 
