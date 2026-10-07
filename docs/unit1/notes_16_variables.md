@@ -112,13 +112,13 @@ A Java double reserves 64 bits: 1 Sign bit, 11 Exponent bits, and 52 Mantissa (b
 
 !!! attention
     1. Write either **Stack** or **Heap** for each:
-        * Stores the actual primitive values (e.g., `int x = 5;`).
-        * Stores the actual data of an Object or array (non-primitive data).
-        * Stores the reference variable (the pointer or "memory address shortcut") to an object.
-    - `int score = 95;` is in a program.
+        * location of the actual primitive values (e.g. 5 for `int x = 5;`).
+        * location of the actual data of an Object (e.g. "Hello" for `String s = "Hello";`).
+        * location of the reference, or "memory address shortcut",(e.g. 0x7FFF4AAA).
+    - Given `int score = 95;` is in a program.
         * How many bits of memory are allocated for the variable `score`?  
-        * In what format is the number `95` actually saved at that allocated memory address?  
-    - Evaluate the following code segment and explain why:
+        * In what number system is `95` actually saved?  
+    - What would the following code output? Explain your answer in terms of how doubles are stored in memory.
     
     ```java
     double value1 = 0.1;
@@ -126,7 +126,7 @@ A Java double reserves 64 bits: 1 Sign bit, 11 Exponent bits, and 52 Mantissa (b
     System.out.println(value1 + value2 == 0.3);
     ```  
 
-    - What will be the final value of `a` and `str1` after this code runs?
+    - What will be the final value of `a` and `str1` after this code runs? Explain your answer in terms of how primitives are stored versus how Strings are stored in memory.
 
     ```java
     int a = 10;
