@@ -75,9 +75,8 @@ Each bit position from right to left represents a positive power of 2 (\(2^0, 2^
 To find the value of any binary number, add up the weights of all the positions that have a 1.
 For your number:
 
-* 32nd bit is 1 \(\rightarrow -2,147,483,648\)
-* All other 31 bits are 0 \(\rightarrow 0\)
-\(\text{Total\ Value}=-2,147,483,648+0=\mathbf{-2,147,483,648}\)
+* 32nd bit is 1 -> -2,147,483,648
+* All other 31 bits are 0 = -2,147,483,648 + 0 = -2,147,483,648}
 
 **How do you actually get 0?**
 
@@ -85,11 +84,12 @@ Because of this math, the only way to get a value of zero in two's complement is
 
 To represent -1, you turn on the massive negative bit and fill the rest with positive bits to pull it back up toward zero:
 
-\(-2,147,483,648+2^{30}+2^{29}+...+2^{0}=-1\)
+-2,147,483,648+2^30+2^29+...+2^0 = -1
 
 (Which looks like 11111111 11111111 11111111 11111111 in binary).
 
-* Integer.MAX_VALUE and Integer.MIN_VALUE
+**Integer.MAX_VALUE and Integer.MIN_VALUE**
+
 * Integer.MIN_VALUE is the lowest possible value a Java int can hold (which is -2,147,483,648).
 * Integer.MAX_VALUE is the highest possible value a Java int can hold (2,147,483,647).
 * Integer Overflow: If you add 1 to Integer.MAX_VALUE, it wraps around and becomes Integer.MIN_VALUE (which, as you now know, happens because the underlying binary bits flip to a 1 followed by 31 zeros).
