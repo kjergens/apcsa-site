@@ -51,7 +51,7 @@ A declared-but-uninitialized local variable can't be read — Java won't compile
 
 ### The Stack and the Heap
 
-![Stack vs Heap](stackheap.png)
+![Stack vs Heap](../stackheap.png)
 
 - **Primitives** (int, double, boolean): These are local, lightweight variables. Their literal value is stored directly on the Stack. When you pass a primitive to a method, Java copies the raw value.
 - **References** (String, arrays, custom objects): These are complex structures. The Stack only holds a 64-bit memory address pointer. The actual data lives in a large, flexible memory pool called the Heap. When you compare two strings or objects using ==, you are comparing their memory addresses on the Stack, not their actual contents on the Heap!
@@ -59,7 +59,7 @@ A declared-but-uninitialized local variable can't be read — Java won't compile
 ### The Stack in Detail
 The stack actually stores data in binary. Each data type is allocated a corresponding size.
 
-![Stack Details](../../stackdetail.png)
+![Stack Details](../stackdetail.png)
 
 ### How Integers Are Stored
 
