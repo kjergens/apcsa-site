@@ -109,3 +109,7 @@ A Java double reserves 64 bits: 1 Sign bit, 11 Exponent bits, and 52 Mantissa (b
 | "variable might not have been initialized" | Declared a variable but tried to use it before giving it a value | Initialize before you read it, even to a placeholder value |
 | Treating `score` and `Score` as the same variable | Java is case-sensitive | Match capitalization exactly, every time |
 | Naming a variable starting with a digit (`2ndScore`) | Illegal identifier — doesn't compile | Start with a letter instead (`secondScore`) |
+
+## Homework: 1.16 Variables and Data Types
+
+!!! attention
