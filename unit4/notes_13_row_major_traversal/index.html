@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="author" content="Katie Jergens" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>4.13 Row-Major Traversal - AP Computer Science A — Columbia Grammar and Preparatory School</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "4.13 Row-Major Traversal";
+        var mkdocs_page_input_path = "unit4/notes_13_row_major_traversal.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../.." class="icon icon-home"> AP Computer Science A — Columbia Grammar and Preparatory School
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../..">Table of Contents</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Unit 1 — Using Objects and Methods</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../unit1/notes_03_java_lab/">1.3 Java Lab</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../unit1/notes_04_classes_and_objects/">1.4 Classes and Objects</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../unit1/notes_05_instantiating_objects/">1.5 Instantiating Objects</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../unit1/notes_06_methods/">1.6 Methods</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../unit1/notes_07_methods_with_parameters/">1.7 Methods with Parameters</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../unit1/notes_09_writing_methods/">1.9 Writing Methods</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../unit1/notes_10_programming_style_and_feedback/">1.10 Programming Style and Feedback</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../unit1/notes_12_no_argument_constructors/">1.12 No-Argument Constructors</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../unit1/notes_13_parameterized_constructors/">1.13 Parameterized Constructors</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../unit1/notes_14_user_input/">1.14 User Input</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../unit1/notes_14b_composition_and_delegation/">Putting It Together: Composition and Delegation</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../unit1/notes_16_variables/">1.16 Variables and Data Types</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../unit1/notes_17_operators_and_expressions/">1.17 Operators and Expressions</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../unit1/notes_18_casting_and_range_of_variables/">1.18 Casting and Range of Variables</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../unit1/notes_19_printing_objects/">1.19 Printing Objects</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../unit1/notes_20_the_theater/">1.20 The Theater</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../unit1/notes_21_the_math_class/">1.21 The Math Class</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../unit1/notes_22_random/">1.22 Random</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../unit1/notes_23_substrings/">1.23 Substrings</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../unit1/notes_24_comparing_strings/">1.24 Comparing Strings</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../unit1/notes_25_overloaded_methods/">1.25 Overloaded Methods</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Unit 2 — Selection and Iteration</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../unit2/notes_01_loops/">2.1 Loops</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../unit2/notes_02_selection_statements/">2.2 Selection Statements</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../unit2/notes_03_two_way_selection_statements/">2.3 Two-Way Selection Statements</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../unit2/notes_04_object_aliases_and_equality/">2.4 Object Aliases and Equality</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../unit2/notes_05_nested_if_statements/">2.5 Nested If Statements</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../unit2/notes_06_logical_operators/">2.6 Logical Operators</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../unit2/notes_07_de_morgans_laws/">2.7 De Morgan's Laws</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../unit2/notes_08_multi_selection_statements/">2.8 Multi-Selection Statements</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../unit2/notes_09_for_loops/">2.9 For Loops</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../unit2/notes_10_implementing_string_algorithms/">2.10 Implementing String Algorithms</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../unit2/notes_11_nested_iteration/">2.11 Nested Iteration</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../unit2/notes_12_informal_runtime_analysis/">2.12 Informal Runtime Analysis</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../unit2/project1/">Project 1: Creative Coding with the Console</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Unit 3 — Class Creation</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../unit3/notes_01_program_design/">3.1 Program Design</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../unit3/notes_02_attributes/">3.2 Attributes</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../unit3/notes_03_the_this_keyword/">3.3 The this Keyword</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../unit3/notes_04_accessor_methods/">3.4 Accessor Methods</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../unit3/notes_05_mutator_methods/">3.5 Mutator Methods</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../unit3/notes_06_static_variables_and_methods/">3.6 Static Variables and Methods</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../unit3/notes_07_object_references_as_parameters/">3.7 Object References as Parameters</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../unit3/notes_08_private_methods/">3.8 Private Methods</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Unit 4 — Data Collections</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../notes_01_data_sets/">4.1 Data Sets</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../notes_02_one_dimensional_arrays/">4.2 One-Dimensional Arrays</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../notes_03_modifying_elements/">4.3 Modifying Elements</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../notes_04_traversing_1d_arrays/">4.4 Traversing 1D Arrays</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../notes_05_text_files/">4.5 Text Files</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../notes_06_ethics_in_data/">4.6 Ethics in Data</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../notes_08_enhanced_for_loops_1d_arrays/">4.8 Enhanced For Loops (1D Arrays)</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../notes_09_array_algorithms/">4.9 Array Algorithms</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../notes_10_finding_duplicates/">4.10 Finding Duplicates</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../notes_11_two_dimensional_arrays/">4.11 Two-Dimensional Arrays</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../notes_12_2d_array_elements/">4.12 2D Array Elements</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">4.13 Row-Major Traversal</a>
+    <ul class="current">
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../notes_14_column_major_traversal/">4.14 Column-Major Traversal</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../notes_15_enhanced_for_loops_2d_arrays/">4.15 Enhanced For Loops (2D Arrays)</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../notes_16_images_in_the_theater/">4.16 Images in the Theater</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../notes_17_2d_array_algorithms/">4.17 2D Array Algorithms</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../notes_18_modifying_images/">4.18 Modifying Images</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../notes_19_integer_and_double_objects/">4.19 Integer and Double Objects</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../notes_20_arraylists/">4.20 ArrayLists</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../notes_21_manipulating_elements/">4.21 Manipulating Elements</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../notes_22_lists_of_objects/">4.22 Lists of Objects</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../notes_23_removing_elements/">4.23 Removing Elements</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../notes_24_arraylist_and_string_algorithms/">4.24 ArrayList and String Algorithms</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../notes_25_recursion/">4.25 Recursion</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../notes_26_searching/">4.26 Searching</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../notes_27_binary_search/">4.27 Binary Search</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../notes_28_selection_sort/">4.28 Selection Sort</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../notes_29_insertion_sort/">4.29 Insertion Sort</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../notes_30_merge_sort/">4.30 Merge Sort</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">AP Computer Science A — Columbia Grammar and Preparatory School</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Unit 4 — Data Collections</li>
+      <li class="breadcrumb-item active">4.13 Row-Major Traversal</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="413-row-major-traversal">4.13 Row-Major Traversal</h1>
+<div class="admonition info">
+<p class="admonition-title">Scaffold placeholder</p>
+<p>This page hasn't been written yet. Source material to migrate: <code>_2026_27_PlanningGrading/_APCSA/study_notes/.../Unit4_Lesson13_RowMajorTraversal_StudyNotes.docx</code></p>
+</div>
+<!-- APCSA_SITE_STUB -->
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../notes_12_2d_array_elements/" class="btn btn-neutral float-left" title="4.12 2D Array Elements"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../notes_14_column_major_traversal/" class="btn btn-neutral float-right" title="4.14 Column-Major Traversal">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../notes_12_2d_array_elements/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../notes_14_column_major_traversal/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../..";</script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script>
+      <script src="../../js/nav_scroll_fix.js"></script>
+      <script src="../../js/copyright_footer.js"></script>
+      <script src="../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(false);
+        });
+    </script>
+
+</body>
+</html>
