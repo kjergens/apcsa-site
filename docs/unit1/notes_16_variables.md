@@ -95,7 +95,7 @@ To represent -1, you turn on the massive negative bit and fill the rest with pos
 ### How Doubles are Stored
 A Java double reserves 64 bits: 1 Sign bit, 11 Exponent bits, and 52 Mantissa (base) bits.
 
-* Fractions such as 0.110 cannot be represented in a finite binary sequence (0.00011001100110011...2).
+* A decimal fraction that looks perfectly simple, like `0.1`, often can't be written *exactly* in binary at all — it becomes an infinitely repeating binary fraction (`0.000110011001100110011...`), the same way `1/3` can't be written exactly as a finite decimal.
 * Storage cuts off at 52 bits, introducing floating-point precision loss (0.1+0.2=0.30000000000000004).
 * **AP CSA Rule**: Never compare double values using ==. Check whether Math.abs(a - b) < 0.0001.
 ---
