@@ -89,21 +89,6 @@ Strings can be added to each other to create a new string using the `+` or `+=` 
 
 A String object is **immutable**, meaning once a String object is created, its attributes cannot be changed. So when we add two Strings (or a String and another value converted to a String) we get a new String without making any change to the values being added together just like when we add the ints 1 + 2 the original 1 and 2 aren’t changed. When we use += we are making a new String by adding something to the current value of a variable and then assigning that new value back into the variable, again just like with numbers.
 
-This is just true for concatenation. A `String` object's contents can never change after it's created. Every String method, e.g., `toLowerCase()`, `toUpperCase()`, `substring()`, returns a **brand-new** String; none of them modify the original.
-
-
-```java
-String message = "Hello World!";
-message.substring(0, 5);
-System.out.println(message);   // "Hello World!" — completely unchanged
-```
-
-That line calling `substring()` computed `"Hello"` and then threw it away — it was never stored anywhere. If you want to keep the result, you have to assign it:
-
-```java
-String greeting = message.substring(0, 5);   // now greeting holds "Hello"
-```
-
 ---
 
 

@@ -108,7 +108,7 @@ System.out.println(message.substring(6, 7));   // "W"
 
 ### Strings Are Immutable
 
-A `String` object's contents can never change after it's created. Every String method — `substring()` included — returns a **brand-new** String; none of them modify the original.
+Remember from the last section, a `String` object's contents can never change after it's created. Every String method — `substring()` included — returns a **brand-new** String; none of them modify the original.
 
 ```java
 String message = "Hello World!";
