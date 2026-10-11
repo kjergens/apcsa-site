@@ -37,12 +37,10 @@ nav:
     - "1.17 Operators and Expressions": unit1/notes_17_operators_and_expressions.md
     - "1.18 Casting and Range of Variables": unit1/notes_18_casting_and_range_of_variables.md
     - "1.19 Printing Objects": unit1/notes_19_printing_objects.md
-    - "1.20 The Theater": unit1/notes_20_the_theater.md
-    - "1.21 The Math Class": unit1/notes_21_the_math_class.md
-    - "1.22 Random": unit1/notes_22_random.md
-    - "1.23 Substrings": unit1/notes_23_substrings.md
-    - "1.24 Comparing Strings": unit1/notes_24_comparing_strings.md
-    - "1.25 Overloaded Methods": unit1/notes_25_overloaded_methods.md
+    - "1.20 The Math Class": unit1/notes_20_the_math_class.md
+    - "1.21 Random numbers": unit1/notes_21_random.md
+    - "1.22 String objects": unit1/notes_22_strings.md
+    - "1.23 Strings methods": unit1/notes_23_strings_methods.md
   - "Unit 2 — Selection and Iteration":
     - "2.1 Loops": unit2/notes_01_loops.md
     - "2.2 Selection Statements": unit2/notes_02_selection_statements.md

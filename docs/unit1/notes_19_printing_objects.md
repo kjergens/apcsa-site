@@ -2,40 +2,21 @@
 
 **CED Topics:** 1.12–1.13, 2.4, 3.6
 
+You already know the mechanism this chapter runs on — 1.16 covered the stack/heap split: a reference variable lives on the stack and holds an *address*, the actual object lives on the heap. This chapter doesn't re-derive that. It applies it to one specific, very common situation: what actually happens when you try to print an object.
+
 ---
 
-## 1. Two Places Things Live: the Stack and the Heap
-
-Every variable you've written so far — `int`, `double`, `String`, and now object references — lives somewhere while your program runs. Java keeps two separate regions of memory, and they behave very differently.
-
-**The stack** holds local variables and parameters, one frame per method call. When `main()` calls another method, that method gets its own frame, stacked on top. When the method returns, its frame — and everything in it — disappears.
-
-**The heap** holds every object you create with `new`. Objects don't belong to any one method's frame; they live on the heap until nothing refers to them anymore, and they stay there even after the method that created them has returned.
+## 1. One Quick Reminder, Then We Build
 
 ```java
-public static void main(String[] args) {
-    NetflixMovie firstMovie = new NetflixMovie("Inception", 2010, "PG-13", 8.8);
-    System.out.println(firstMovie.getTitle());
-}
+NetflixMovie movie = new NetflixMovie("Inception", 2010, "PG-13", 8.8);
 ```
 
-Here, `firstMovie` — the variable itself — lives on the stack, inside `main()`'s frame. The actual `NetflixMovie` object — its `title`, `year`, `rating`, `score` fields — lives on the heap. `firstMovie` doesn't *contain* the object. It contains the object's **address**: a reference to where that object lives on the heap.
-
-This is the single most important fact in this chapter, and everything else follows from it: **a reference variable is not the object. It's directions to the object.**
+`movie` — the variable — lives on the stack and holds an address. The real `NetflixMovie`, with its `title`, `year`, `rating`, `score`, lives on the heap at that address. One more fact worth adding to what 1.16 already gave you: **a reference always takes the same small, fixed amount of space on the stack, no matter how big the object it points to is.** `movie` takes exactly as much stack space as any other reference — whether it points to a four-field `NetflixMovie` or a `Customer` with a hundred-movie queue attached. The size difference lives entirely on the heap, never in the reference.
 
 ---
 
-## 2. Creating a Variable: Finding Room
-
-When you write `int year = 2010;`, Java doesn't just conjure space out of nowhere. It finds a free, contiguous chunk of memory big enough to hold an `int` (a fixed, small size, always the same no matter the value), reserves it, and writes `2010` there. `year` is now the *name* your code uses to refer to that specific chunk.
-
-`new NetflixMovie(...)` works the same way, but on the heap, and at a different scale. Java finds enough free, contiguous space to hold *all* of a `NetflixMovie`'s fields together — `title`, `year`, `rating`, `score` — reserves that whole block, and writes the constructor's values into it. The reference that comes back and gets stored in your stack variable is just the address of where that block starts.
-
-This is also why a reference variable always takes the same small, fixed amount of memory, no matter how big the object it points to is. `firstMovie` takes exactly as much space as any other reference — enough to hold one address — whether it points to a `NetflixMovie` with four fields or a `Customer` with a hundred-movie queue attached. The size difference lives entirely on the heap, never in the reference itself.
-
----
-
-## 3. Two Variables, One Object
+## 2. Two Variables, One Object
 
 Because a reference is just an address, nothing stops two different variables from holding the *same* address — pointing at the *same* object.
 
@@ -48,7 +29,7 @@ alias.setScore(9.5);
 System.out.println(original.getScore());   // 9.5 — not 8.8!
 ```
 
-`alias = original` doesn't make a copy of the `NetflixMovie` object. It copies the *address* — now both `original` and `alias` point to the exact same object on the heap. Changing the object through `alias` is visible through `original`, because there was only ever one object; `original` and `alias` are just two names for the same place. This is called **aliasing**, and it's the source of a whole category of bugs where a program mutates something through one variable and is surprised another variable "also changed" — it never changed twice. It only existed once.
+`alias = original` doesn't copy the object. It copies the *address* — now both variables point to the exact same object on the heap. Changing the object through `alias` is visible through `original`, because there was only ever one object; they're just two names for the same place. This is called **aliasing**.
 
 Compare that to reassigning `alias` to a brand-new object:
 
@@ -59,15 +40,15 @@ System.out.println(original.getTitle());   // still "Inception"
 System.out.println(alias.getTitle());      // "The Matrix"
 ```
 
-Now `alias` points somewhere new. `original` never changed — it never knew `alias` existed in the first place. Reassigning a reference just points that one variable elsewhere; it has no effect on any object, and no effect on any other variable that happened to share the old address.
+`alias` now points somewhere new. `original` never changed — it never knew `alias` existed. Reassigning a reference just points *that one variable* elsewhere; it never affects any object, and never affects any other variable that happened to share the old address.
 
 ---
 
-## 4. Passing Objects to Methods: Get the Vocabulary Right
+## 3. Passing Objects to Methods: Get the Vocabulary Right
 
-You'll sometimes hear objects described as "passed by reference" in Java. **That's not accurate, and it's worth unlearning now rather than later** — the AP exam's own vocabulary for this (Topic 3.6, "Passing and Returning *References* of an Object") is deliberately precise about it.
+You'll sometimes hear objects described as "passed by reference" in Java. **That's not accurate, and it's worth unlearning now** — the AP exam's own vocabulary (Topic 3.6, "Passing and Returning *References* of an Object") is deliberately precise about it.
 
-**Java is always pass-by-value. No exceptions.** For a primitive, the value copied is the number itself. For an object, the value copied is the *reference* — the address — not the object.
+**Java is always pass-by-value. No exceptions.** For a primitive, the value copied is the number itself. For an object, the value copied is the *reference* — not the object.
 
 ```java
 public static void rename(NetflixMovie m) {
@@ -89,32 +70,43 @@ public static void main(String[] args) {
 }
 ```
 
-`rename` and `replace` both receive a *copy* of the reference — same address, different variable. `rename` uses that copy to reach into the object and change a field — and since there's only one object, `main`'s `movie` sees the change too. `replace` reassigns its own local copy `m` to point somewhere new entirely — but that's just `replace`'s copy. `main`'s `movie` still points to the original object, completely unaffected.
+`rename` and `replace` both receive a *copy* of the reference — same address, different variable. `rename` uses that copy to reach into the object and change a field, so `main`'s `movie` sees it too, since there's only one object. `replace` reassigns its own local copy `m` to point somewhere new entirely — but that's just `replace`'s copy. `main`'s `movie` is unaffected.
 
 The precise sentence to hold onto: **the reference is passed by value.** Not "the object is passed by reference" — there's no such thing in Java.
 
 ---
 
-## 5. Why Printing an Object Shows Something Like `NetflixMovie@1a2b3c`
+## 4. Why Printing an Object Shows Something Like `NetflixMovie@1a2b3c`
 
-Try this before `NetflixMovie` has a `toString()` method of its own:
+Here's the payoff of 1.16's stack/heap picture: `println` has to show you *something* when you hand it an object directly, and all it actually has access to, by default, is the reference itself — not the object's contents.
 
 ```java
 NetflixMovie movie = new NetflixMovie("Inception", 2010, "PG-13", 8.8);
 System.out.println(movie);
 ```
-
 ```
 NetflixMovie@7a81197d
 ```
 
-This isn't a bug, and it isn't random. Every class you write, even if you don't ask for it, automatically inherits a `toString()` method from Java's `Object` class — the ancestor of every class in Java. Its default implementation returns the class name, an `@`, and a hexadecimal number derived from the object's identity on the heap. `System.out.println(movie)` is really calling `movie.toString()` behind the scenes, and without your own version, it falls back to that inherited one — which has no idea what a "title" or a "score" is. All it can report is roughly *where this object lives*.
+Every class, even if you never ask for it, automatically inherits a `toString()` method from Java's `Object` class — the ancestor of every class. Its default version returns the class name, an `@`, and a value derived from the object's identity on the heap. `System.out.println(movie)` is really calling `movie.toString()` behind the scenes — and without your own version, it falls back to that inherited one, which has no idea what a "title" or a "score" is. All it can report is *where this object lives*, because that's all a bare reference actually tells you.
+
+**This is the exact same mechanism behind arrays, which you'll cover properly in a later chapter — but it's worth seeing now, since it's not a new rule.** An array variable is a reference too, so printing one directly does the same thing:
+
+```java
+int[] scores = {88, 72, 95};
+System.out.println(scores);
+```
+```
+[I@15db9742
+```
+
+Same idea, same reason: `scores` is a reference on the stack, the array's actual contents live on the heap, and without a special method to print the *contents*, Java can only report the reference's identity.
 
 ---
 
-## 6. Writing Your Own `toString()`
+## 5. Writing Your Own `toString()`
 
-This is why you `@Override toString()` — to replace that inherited, address-based default with one that actually describes your object:
+This is why you `@Override toString()` — to replace the inherited, address-based default with one that actually describes your object:
 
 ```java
 @Override
@@ -133,5 +125,5 @@ Now `System.out.println(movie)` prints `Inception (2010) | PG-13 | 8.8/10` inste
 |---|---|---|
 | `System.out.println(someObject)` prints something like `ClassName@1a2b3c` | No `toString()` override — Java is using the inherited default from `Object` | Write your own `toString()` |
 | "I changed it through one variable and a *different* variable also changed!" | Not a bug — both variables were aliases pointing to the same object the whole time | Expected behavior; if you need a truly separate copy, you have to build one explicitly |
-| Assuming a method can permanently redirect a caller's variable to a new object | Confusing mutating the object (visible to the caller) with reassigning the local reference copy (invisible to the caller) | Only changes made *through* the reference (calling setters, etc.) are visible outside the method — reassigning the parameter itself never is |
+| Assuming a method can permanently redirect a caller's variable to a new object | Confusing mutating the object (visible to the caller) with reassigning the local reference copy (invisible to the caller) | Only changes made *through* the reference are visible outside the method — reassigning the parameter itself never is |
 | Calling it "pass by reference" | Java has no pass-by-reference. The *reference* is passed by value | Say "the reference is copied," not "the object is passed by reference" |
