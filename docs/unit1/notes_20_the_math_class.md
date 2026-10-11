@@ -54,7 +54,7 @@ Math.sqrt(25);   // 5.0
 double chance = Math.random();   // somewhere in [0.0, 1.0)
 ```
 
-On its own, `Math.random()` only gives you a decimal between 0 and 1 — turning that into a random integer in a useful range (like simulating a die roll) takes a bit more work, and a classic off-by-one trap if you're not careful. That's covered fully in 1.22.
+On its own, `Math.random()` only gives you a decimal between 0 and 1 — turning that into a random integer in a useful range (like simulating a die roll) takes a bit more work, and a classic off-by-one trap if you're not careful. That's covered fully in 1.21.
 
 ---
 
@@ -65,3 +65,29 @@ On its own, `Math.random()` only gives you a decimal between 0 and 1 — turning
 | `Math movie = new Math();` | `Math` has no constructor to call — it's a static utility class, never instantiated | Call its methods directly on the class: `Math.methodName(...)` |
 | `int area = Math.pow(4, 2);` won't compile | `Math.pow()` returns a `double`, even for whole-number results | Cast explicitly: `(int) Math.pow(4, 2)` |
 | Expecting `Math.random()` to ever return exactly `1.0` | The range is `[0.0, 1.0)` — inclusive of 0, exclusive of 1 | Design range calculations knowing `1.0` itself never occurs |
+
+## Homework 1.20 The Math Class
+
+!!! attention
+
+    1. True or False, and explain why: `Math myMath = new Math();` is legal Java.
+
+    2. What does this print, and what *type* is `area`?
+    ```java
+    int side = 4;
+    double area = Math.pow(side, 2);
+    System.out.println(area);
+    ```
+
+    3. Find the bug and explain the fix:
+    ```java
+    int area = Math.pow(5, 2);
+    ```
+
+    4. Evaluate exactly: `Math.abs(-9.5) + Math.sqrt(16)`
+
+    5. In your own words: explain why `Math.sqrt(16)` doesn't require creating a `Math` object first, but `movie.getTitle()` does require creating a `NetflixMovie` object first.
+
+    6. What is the narrowest possible range of values `Math.random()` can return? Can it ever return exactly `1.0`? Exactly `0.0`?
+
+    7. Write one line of code that computes the hypotenuse of a right triangle with legs `3` and `4`, using only `Math.sqrt()` and `Math.pow()`.

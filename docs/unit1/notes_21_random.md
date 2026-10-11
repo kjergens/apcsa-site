@@ -48,3 +48,27 @@ It's tempting to reach for `Math.round()` instead of `(int)` — but rounding br
 | A random range never produces its maximum value | Forgot the `+ 1` when computing the scaling factor | Scaling factor should be `max - min + 1`, the *count* of possible values |
 | Used `Math.round()` instead of `(int)` | Rounding skews the distribution toward the middle of the range | Use `(int)` (truncation) for uniform random ranges, not rounding |
 | Forgot to add `min` back on | Range starts at `0` instead of the intended minimum | The final `+ min` shifts the whole range into place |
+
+## Homework 1.21 Random Numbers
+
+!!! attention
+
+    1. Write the correct expression for a random `int` between `10` and `20`, inclusive of both ends.
+
+    2. Find the bug in this die simulation, and explain exactly what outcome becomes impossible as a result:
+    ```java
+    int dieRoll = (int)(Math.random() * 5) + 1;
+    ```
+
+    3. Suppose, just for this one call, `Math.random()` happens to return `0.999999`. What value does `result` take?
+    ```java
+    int result = (int)(Math.random() * 10) + 1;
+    ```
+
+    4. In your own words: why does the standard formula use `(int)` to truncate instead of `Math.round()`? What would happen to the distribution of a 1–6 die simulation if you used `Math.round()` instead?
+
+    5. Write an expression that simulates rolling two six-sided dice and returns their sum as a single `int`. (Watch your parentheses.)
+
+    6. A game needs a random integer between `-5` and `5`, inclusive. Identify `min`, `max`, and the scaling factor (`max - min + 1`), then write the full expression.
+
+    7. True or False, and explain why: since `Math.random()` can theoretically return exactly `1.0`, a safe formula should use `(max - min + 2)` instead of `(max - min + 1)`.
