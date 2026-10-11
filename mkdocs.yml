@@ -40,7 +40,7 @@ nav:
     - "1.20 The Math Class": unit1/notes_20_the_math_class.md
     - "1.21 Random numbers": unit1/notes_21_random.md
     - "1.22 String objects": unit1/notes_22_strings.md
-    - "1.23 Strings methods": unit1/notes_23_strings_methods.md
+    - "1.23 Strings methods": unit1/notes_23_string_methods.md
   - "Unit 2 — Selection and Iteration":
     - "2.1 Loops": unit2/notes_01_loops.md
     - "2.2 Selection Statements": unit2/notes_02_selection_statements.md
