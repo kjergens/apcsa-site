@@ -2,7 +2,7 @@
 
 **CED Topics:** 1.11
 
-`Math.random()` only ever gives a `double` in `[0.0, 1.0)` — see 1.21. The real skill here is turning that into a random *integer* in a specific, useful range, and avoiding the off-by-one trap that catches almost everyone the first time.
+`Math.random()` only ever gives a `double` in `[0.0, 1.0)`. The real skill here is turning that into a random *integer* in a specific, useful range, and avoiding the off-by-one trap that catches almost everyone the first time.
 
 ---
 
@@ -29,6 +29,8 @@ The single most common mistake is leaving out the `+ 1` in step 2:
 
 ```java
 int roll = (int)(Math.random() * (max - min)) + min;   // WRONG
+int roll2 = (int)(Math.random() * (max - min + 1)) + min;   // CORRECT
+
 ```
 
 With `min = 1`, `max = 6`, this multiplies by `5` instead of `6` — giving truncated values `0, 1, 2, 3, 4`, then adding `min` gives `1, 2, 3, 4, 5`. **The die can never roll a 6.** The range silently loses its top value, and nothing crashes or errors to tell you — the code runs fine, it's just quietly wrong. Whenever you're building a random range, check explicitly: does my scaling factor equal the *count* of possible outcomes, or one less than it?
@@ -55,12 +57,12 @@ It's tempting to reach for `Math.round()` instead of `(int)` — but rounding br
 
     1. Write the correct expression for a random `int` between `10` and `20`, inclusive of both ends.
 
-    2. Find the bug in this die simulation, and explain exactly what outcome becomes impossible as a result:
+    2. To make a gambling game, someone wrote this line of code to randomly select one side of a 6-sided die. Explain what they did wrong and why:
     ```java
     int dieRoll = (int)(Math.random() * 5) + 1;
     ```
 
-    3. Suppose, just for this one call, `Math.random()` happens to return `0.999999`. What value does `result` take?
+    3. If `Math.random()` returned `0.999999` what value would `result` have?
     ```java
     int result = (int)(Math.random() * 10) + 1;
     ```
@@ -71,4 +73,4 @@ It's tempting to reach for `Math.round()` instead of `(int)` — but rounding br
 
     6. A game needs a random integer between `-5` and `5`, inclusive. Identify `min`, `max`, and the scaling factor (`max - min + 1`), then write the full expression.
 
-    7. True or False, and explain why: since `Math.random()` can theoretically return exactly `1.0`, a safe formula should use `(max - min + 2)` instead of `(max - min + 1)`.
+    7. True or False: Since `Math.random()` can theoretically return exactly `1.0`, a safe formula should use `(max - min + 2)` instead of `(max - min + 1)`.
