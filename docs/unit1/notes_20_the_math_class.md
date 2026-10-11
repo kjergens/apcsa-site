@@ -6,6 +6,8 @@
 
 ## 1. A Class You Never Instantiate
 
+The `Math` methods are **class methods** (or **static methods**) which means you can call them by just using ClassName.methodName().
+
 Every object class you've worked with — `NetflixMovie`, `Customer` — needs `new` before you can use it:
 
 ```java
@@ -23,7 +25,7 @@ This is the core distinction between a **static (class) method** and an **instan
 
 ---
 
-## 2. The Four Methods That Matter
+## 2. The Four Methods That Matter: abs(), pow(), sqrt(), random()
 
 **`Math.abs(x)`** — absolute value. Works on `int` or `double`, returns the same type you gave it.
 
