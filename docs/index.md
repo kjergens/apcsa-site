@@ -1,8 +1,6 @@
 # AP Computer Science A — Table of Contents
 
-Welcome to APCSA at Columbia Grammar and Preparatory School. This site contains **unit notes** aligned to the official AP CED units and topics. Due dates and homework submissions are in Schoology; coding practice is in CodeAI.
-
-This site is a work in progress — pages marked "Scaffold placeholder" haven't been written yet.
+Welcome to APCSA at Columbia Grammar and Preparatory School. This site contains **unit notes** aligned to the official AP CED units and topics. Due dates and homework submissions are in Schoology.
 
 ---
 
