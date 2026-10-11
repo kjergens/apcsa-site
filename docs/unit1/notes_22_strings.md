@@ -53,21 +53,32 @@ System.out.println(s1 == s2);   // TRUE - they BOTH have the same reference
 ## String Index and Length
 A string holds characters in a sequence. Each character is at a position or index which starts with 0 as shown below. An index is a number associated with a position in a string. The length of a string is the number of characters in it including any spaces or special characters.
 
-	* length() method returns the number of characters in the string, including spaces and special characters like punctuation.
+* **length()** method returns the number of characters in the string, including spaces and special characters like punctuation.
 
-	* indexOf(String str) method searches for the string str in the current string and returns the index of the beginning of str in the current string or -1 if it isn’t found.
+* **indexOf(String str)** method searches for the string str in the current string and returns the index of the beginning of str in the current string or -1 if it isn’t found.
 
 
 ```java
-String msg = "This is a test";
-System.out.println(msg.indexOf("test"));
-System.out.println(msg.length());
+String msg = "This is a test.";
+System.out.println(msg.indexOf("test"));     // 10 Index of the start of test
+System.out.println(msg.length());         // 15 total number of chars including spaces and punctuation
+System.out.println(msg.indexOf("crepe"));   // -1  Not found
+System.out.println(msg.indexof("is"));      // 2  The first instance of is from the word This.
 ```
 
 The output to the above code would be:
 ```
 10
-14
+15
+-1 
+2
+```
+
+```
+Index:  0  1  2  3  4  5  6  7  8  9  10 11 12 13 14
+Text:   T  h  i  s     i  s     a     t  e  s  t  .
+              ^
+        First "is" starts here (Index 2)
 ```
 
 The first character in a string is at index 0 and the last character is at length -1.
