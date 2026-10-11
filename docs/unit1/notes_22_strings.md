@@ -11,9 +11,9 @@ Strings in Java are objects of the String class. Strings represent sequences of 
 String greeting;
 ```
 
-The code above declares an object variable named `greeting` and sets the value of greeting to the Java keyword `null` to show that it doesn’t refer to any object yet. So `System.out.println(greeting);` will print `null`.
+The code above declares an object variable named `greeting` and sets the value of `greeting` to the Java keyword `null` to show that it doesn’t refer to any object yet. So `System.out.println(greeting);` will print `null`.
 
-Reminder: object variables refer to objects in memory. A **reference** is a way to find the actual object, like adding a contact to your phone lets you reach someone without knowing exactly where they are. The value of greeting is null since the string object has not been created yet.
+Reminder: object variables refer to objects in memory. A **reference** is a way to find the actual object, like adding a contact to your phone lets you reach someone without knowing exactly where they are. The value of `greeting` is `null` since the string object has not been created yet.
 
 
 In Java there are two ways to create an object of the String class. You can use the `new` keyword followed by a space and then the class constructor and then in parentheses you can include values used to initialize the fields of the object. This is the standard way to create a new object of a class in Java.
@@ -32,6 +32,22 @@ In both cases an object of the `String` class will be created in memory and the 
 
 
 ## String: Why .equals() instead of == ?
+
+As you learned in section 1.16, reference types store the reference or heap address in the stack. The == operator compares stack values. Two independently created strings will have their own address, therefore == will return false.
+
+```java
+String s1 = "Panda";
+String s2 = new String("Panda"); // Forces the creation of a brand NEW object
+
+System.out.println(s1 == s2);      // FALSE (They point to different locations)
+System.out.println(s1.equals(s2)); // TRUE (The text content is identical)
+```
+
+```java
+String s1 = "Panda";
+String s2 = s1;  
+System.out.println(s1 == s2);   // TRUE - they BOTH have the same reference
+```
 
 
 ## String Index and Length
