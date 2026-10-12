@@ -31,7 +31,7 @@ String greeting = "Hello";
 In both cases an object of the `String` class will be created in memory and the value of the variable greeting will be set to an object **reference**, a way to find that object.
 
 
-## String: Why .equals() instead of == ?
+## Why .equals() instead of == ?
 
 As you learned in section 1.16, reference types store the reference or heap address in the stack. The == operator compares stack values. Two independently created strings will have their own address, therefore == will return false.
 
@@ -50,7 +50,7 @@ System.out.println(s1 == s2);   // TRUE - they BOTH have the same reference
 ```
 
 
-## String Index and Length
+## Index and Length
 A string holds characters in a sequence. Each character is at a position or index which starts with 0 as shown below. An index is a number associated with a position in a string. The length of a string is the number of characters in it including any spaces or special characters.
 
 * **length()** method returns the number of characters in the string, including spaces and special characters like punctuation.
@@ -84,11 +84,13 @@ Text:   T  h  i  s     i  s     a     t  e  s  t  .
 The first character in a string is at index 0 and the last character is at length -1.
 
 
-## String concatenation and immutability
+## Concatenation and Immutability
 Strings can be added to each other to create a new string using the `+` or `+=` operator . This is also called **concatenation**. You can also add any other kind of value to a String with `+` or `+=` and the other value will be converted to a String automatically.
 
 A String object is **immutable**, meaning once a String object is created, its attributes cannot be changed. So when we add two Strings (or a String and another value converted to a String) we get a new String without making any change to the values being added together just like when we add the ints 1 + 2 the original 1 and 2 aren’t changed. When we use += we are making a new String by adding something to the current value of a variable and then assigning that new value back into the variable, again just like with numbers.
 
 ---
+
+## /n and /t
 
 
