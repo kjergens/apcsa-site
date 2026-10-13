@@ -27,7 +27,7 @@ Walk through it with `min = 1`, `max = 6` — simulating a six-sided die:
 
 The single most common mistake on the AP Exam is forgetting to add 1 to your range modifier. This creates a logical error: your code runs perfectly without crashing, but it will never hit the maximum value.
 
-### Bug vs. the fix
+#### Bug vs. the fix
 
 ```java
 // ❌ WRONG: Max is impossible to reach
@@ -38,7 +38,7 @@ int roll2 = (int)(Math.random() * (max - min + 1)) + min;
 ```
 
 
-### Why the Bug Happens (Using a 6-Sided Die)
+#### Why the Bug Happens (Using a 6-Sided Die)
 
 If you want a random roll between min = 1 and max = 6, you have 6 possible outcomes (1, 2, 3, 4, 5, 6).
 Look at what happens mathematically when you forget the + 1:
@@ -52,8 +52,9 @@ Look at what happens mathematically when you forget the + 1:
 |Result	| Missing the 6! (range was too small) |	Perfect 1 to 6 die roll. |
 
 Whenever you write a random range formula, ask yourself: Is my multiplier equal to the total count of possible outcomes?
-• To get `N` consecutive integers, your scaling factor must be exactly `N`.
-• Because Math.random() excludes 1.0, your multiplier needs to be (max - min + 1) to account for the inclusive upper bound.
+
+- To get `N` consecutive integers, your scaling factor must be exactly `N`.
+- Because `Math.random()` excludes 1.0, your multiplier needs to be (max - min + 1) to account for the inclusive upper bound.
 
 ---
 
