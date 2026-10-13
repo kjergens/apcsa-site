@@ -102,7 +102,60 @@ System.out.println(scores);
 
 Same idea, same reason: `scores` is a reference on the stack, the array's actual contents live on the heap, and without a special method to print the *contents*, Java can only report the reference's identity.
 
-Note: An object variable on the stack with no reference in the heap gets the value `null`.
+That mindset is 100% correct, highly intuitive, and exactly how professional programmers think when writing code!
+By initializing a variable to null on purpose, you are telling Java: "Hey, I am creating a placeholder name right now. I don't have the real object data ready yet, but I promise I will point this name to a real place on the heap later."
+Here is how that exact mindset maps perfectly to how Java handles memory:
+
+## Understanding `null`
+### Creating the Placeholder (setting to null)
+
+When you write:
+```
+java
+NetflixMovie favoredMovie = null;
+```
+
+- On the Stack: Java reserves a small, fixed slot for the variable name favoredMovie.
+- On the Heap: Absolutely nothing is created. No memory is used for object data. The stack variable just holds a special blank signpost (null) that says "I point to no address right now."
+- Why it's safe: Because you explicitly gave it the value null, the compiler is happy. It will let your code run, and you can even print it safely.
+
+### Filling the Placeholder Later (Two Options)
+
+Once you are ready to use it, you can point that placeholder to an object in one of two ways:
+
+1. Way A: Creating a brand-new object
+
+```
+java
+// You finally know what movie it is!
+favoredMovie = new NetflixMovie("Inception", 2010, "PG-13", 8.8);
+
+* What happens: Java goes to the heap, builds a fresh NetflixMovie object, and drops its new heap address right into your stack placeholder.
+
+2. Way B: Pointing it to an existing reference (Aliasing)
+
+```
+java
+NetflixMovie matrix = new NetflixMovie("The Matrix", 1999, "R", 8.7);
+
+// You decide this is your favored movie!
+favoredMovie = matrix; 
+```
+
+* What happens: Java looks at the address matrix is already pointing to, and copies that exact same heap address into favoredMovie. Now both names point to the same single movie on the heap.
+
+### The One Ground Rule for This Mindset
+
+Because null means "no address in the heap yet," you cannot look inside the object until you actually complete Step 2.
+If you try to call a method while it is still a placeholder:
+
+```
+java
+NetflixMovie favoredMovie = null;
+System.out.println(favoredMovie.getTitle()); // ❌ CRASH! NullPointerException
+```
+
+Java crashes because you told it to go to the heap and grab a title, but `favoredMovie` doesn't have a heap address yet!
 
 
 ---
