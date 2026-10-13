@@ -44,12 +44,12 @@ If you want a random roll between min = 1 and max = 6, you have 6 possible outco
 Look at what happens mathematically when you forget the + 1:
 
 |Step	| ❌ The Buggy Range (max - min) |	The Correct Range (max - min + 1) |
--
-|1. Base Range |	Math.random() -> [0.0, 1.0) |	Math.random() -> [0.0, 1.0) |
-|2. Scale	| Multiply by 5 (6 - 1) ->  [0.0, 4.9999] | 	Multiply by 6 (6 - 1 + 1) -> [0.0, 5.9999]|
-|3. Truncate (int) |	Drops decimals -> 0, 1, 2, 3, 4	 | Drops decimals -> 0, 1, 2, 3, 4, 5|
-|4. Shift + min	| Add 1 -> 1, 2, 3, 4, 5	| Add 1 ->  1, 2, 3, 4, 5, 6|
-|Result	| Missing the 6! (range was too small) |	Perfect 1 to 6 die roll.|
+---------------------------------------------------------------------------------
+|1. Base Range |	Math.random() -> [0.0, 1.0) |	Math.random() -> [0.0, 1.0) 
+|2. Scale	| Multiply by 5 (6 - 1) ->  [0.0, 4.9999] | 	Multiply by 6 (6 - 1 + 1) -> [0.0, 5.9999]
+|3. Truncate (int) |	Drops decimals -> 0, 1, 2, 3, 4	 | Drops decimals -> 0, 1, 2, 3, 4, 5
+|4. Shift + min	| Add 1 -> 1, 2, 3, 4, 5	| Add 1 ->  1, 2, 3, 4, 5, 6
+|Result	| Missing the 6! (range was too small) |	Perfect 1 to 6 die roll.
 
 Whenever you write a random range formula, ask yourself: Is my multiplier equal to the total count of possible outcomes?
 • To get `N` consecutive integers, your scaling factor must be exactly `N`.
