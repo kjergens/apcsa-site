@@ -1,4 +1,4 @@
-# 1.19 Printing Objects
+# 1.19 Objects in Memory
 
 **CED Topics:** 1.12–1.13, 2.4, 3.6
 
@@ -102,20 +102,6 @@ System.out.println(scores);
 
 Same idea, same reason: `scores` is a reference on the stack, the array's actual contents live on the heap, and without a special method to print the *contents*, Java can only report the reference's identity.
 
----
-
-## 5. Writing Your Own `toString()`
-
-This is why you `@Override toString()` — to replace the inherited, address-based default with one that actually describes your object:
-
-```java
-@Override
-public String toString() {
-    return title + " (" + year + ") | " + rating + " | " + score + "/10";
-}
-```
-
-Now `System.out.println(movie)` prints `Inception (2010) | PG-13 | 8.8/10` instead of a hex code — because `println` is still calling `toString()`, it's just calling *your* version now, which shadows the inherited one. Nothing about *how* `println` works changed; what changed is which `toString()` it finds.
 
 ---
 
@@ -123,7 +109,5 @@ Now `System.out.println(movie)` prints `Inception (2010) | PG-13 | 8.8/10` inste
 
 | Error | What's actually happening | Fix |
 |---|---|---|
-| `System.out.println(someObject)` prints something like `ClassName@1a2b3c` | No `toString()` override — Java is using the inherited default from `Object` | Write your own `toString()` |
 | "I changed it through one variable and a *different* variable also changed!" | Not a bug — both variables were aliases pointing to the same object the whole time | Expected behavior; if you need a truly separate copy, you have to build one explicitly |
 | Assuming a method can permanently redirect a caller's variable to a new object | Confusing mutating the object (visible to the caller) with reassigning the local reference copy (invisible to the caller) | Only changes made *through* the reference are visible outside the method — reassigning the parameter itself never is |
-| Calling it "pass by reference" | Java has no pass-by-reference. The *reference* is passed by value | Say "the reference is copied," not "the object is passed by reference" |
