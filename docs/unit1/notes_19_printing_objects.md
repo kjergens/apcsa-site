@@ -84,6 +84,7 @@ Here's the payoff of 1.16's stack/heap picture: `println` has to show you *somet
 NetflixMovie movie = new NetflixMovie("Inception", 2010, "PG-13", 8.8);
 System.out.println(movie);
 ```
+
 ```
 NetflixMovie@7a81197d
 ```
@@ -110,8 +111,7 @@ Here is how that exact mindset maps perfectly to how Java handles memory:
 ### Creating the Placeholder (setting to null)
 
 When you write:
-```
-java
+``` java
 NetflixMovie favoredMovie = null;
 ```
 
@@ -129,6 +129,7 @@ Once you are ready to use it, you can point that placeholder to an object in one
 java
 // You finally know what movie it is!
 favoredMovie = new NetflixMovie("Inception", 2010, "PG-13", 8.8);
+```
 
 * What happens: Java goes to the heap, builds a fresh NetflixMovie object, and drops its new heap address right into your stack placeholder.
 
