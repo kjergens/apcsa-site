@@ -102,6 +102,8 @@ System.out.println(scores);
 
 Same idea, same reason: `scores` is a reference on the stack, the array's actual contents live on the heap, and without a special method to print the *contents*, Java can only report the reference's identity.
 
+Note: An object variable on the stack with no reference in the heap gets the value `null`.
+
 
 ---
 
