@@ -25,11 +25,11 @@ Walk through it with `min = 1`, `max = 6` — simulating a six-sided die:
 
 ## 2. The Off-By-One Trap
 
-The single most common mistake is leaving out the `+ 1` in step 2:
+The single most common mistake is forgetting to add 1 to the range. See these examples:
 
 ```java
-int roll = (int)(Math.random() * (max - min)) + min;   // WRONG
-int roll2 = (int)(Math.random() * (max - min + 1)) + min;   // CORRECT
+int roll = (int)(Math.random() * (max - min)) + min;   // X WRONG
+int roll2 = (int)(Math.random() * (max - min + 1)) + min;   // CORRECT - you need to add 1
 
 ```
 
