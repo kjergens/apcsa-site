@@ -103,9 +103,6 @@ System.out.println(scores);
 
 Same idea, same reason: `scores` is a reference on the stack, the array's actual contents live on the heap, and without a special method to print the *contents*, Java can only report the reference's identity.
 
-That mindset is 100% correct, highly intuitive, and exactly how professional programmers think when writing code!
-By initializing a variable to null on purpose, you are telling Java: "Hey, I am creating a placeholder name right now. I don't have the real object data ready yet, but I promise I will point this name to a real place on the heap later."
-Here is how that exact mindset maps perfectly to how Java handles memory:
 
 ## 5. Understanding `null`
 ### Creating the Placeholder (setting to null)
