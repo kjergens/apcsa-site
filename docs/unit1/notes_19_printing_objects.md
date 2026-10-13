@@ -51,14 +51,6 @@ You'll sometimes hear objects described as "passed by reference" in Java. **That
 **Java is always pass-by-value. No exceptions.** For a primitive, the value copied is the number itself. For an object, the value copied is the *reference* — not the object.
 
 ```java
-public static void rename(NetflixMovie m) {
-    m.setTitle("Renamed!");        // mutates the object the reference points to
-}
-
-public static void replace(NetflixMovie m) {
-    m = new NetflixMovie("New Movie", 2024, "PG", 7.0);   // only reassigns the LOCAL copy
-}
-
 public static void main(String[] args) {
     NetflixMovie movie = new NetflixMovie("Inception", 2010, "PG-13", 8.8);
 
@@ -67,6 +59,14 @@ public static void main(String[] args) {
 
     replace(movie);
     System.out.println(movie.getTitle());    // still "Renamed!" — replace() only reassigned its own copy
+}
+
+public static void rename(NetflixMovie m) {
+    m.setTitle("Renamed!");        // mutates the object the reference points to
+}
+
+public static void replace(NetflixMovie m) {
+    m = new NetflixMovie("New Movie", 2024, "PG", 7.0);   // only reassigns the LOCAL copy
 }
 ```
 
