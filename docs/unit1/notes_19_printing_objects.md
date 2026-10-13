@@ -107,8 +107,8 @@ That mindset is 100% correct, highly intuitive, and exactly how professional pro
 By initializing a variable to null on purpose, you are telling Java: "Hey, I am creating a placeholder name right now. I don't have the real object data ready yet, but I promise I will point this name to a real place on the heap later."
 Here is how that exact mindset maps perfectly to how Java handles memory:
 
-## Understanding `null`
-### Creating the Placeholder (setting to null)
+## 5. Understanding `null`
+## Creating the Placeholder (setting to null)
 
 When you write:
 ``` java
@@ -119,11 +119,11 @@ NetflixMovie favoredMovie = null;
 - On the Heap: Absolutely nothing is created. No memory is used for object data. The stack variable just holds a special blank signpost (null) that says "I point to no address right now."
 - Why it's safe: Because you explicitly gave it the value null, the compiler is happy. It will let your code run, and you can even print it safely.
 
-### Filling the Placeholder Later (Two Options)
+## Filling the Placeholder Later (Two Options)
 
 Once you are ready to use it, you can point that placeholder to an object in one of two ways:
 
-1. Way A: Creating a brand-new object
+1. Creating a brand-new object
 
 ``` java
 // You finally know what movie it is!
@@ -132,7 +132,7 @@ favoredMovie = new NetflixMovie("Inception", 2010, "PG-13", 8.8);
 
 * What happens: Java goes to the heap, builds a fresh NetflixMovie object, and drops its new heap address right into your stack placeholder.
 
-2. Way B: Pointing it to an existing reference (Aliasing)
+2. Pointing it to an existing reference (Aliasing)
 
 ``` java
 NetflixMovie matrix = new NetflixMovie("The Matrix", 1999, "R", 8.7);
@@ -143,7 +143,7 @@ favoredMovie = matrix;
 
 * What happens: Java looks at the address matrix is already pointing to, and copies that exact same heap address into favoredMovie. Now both names point to the same single movie on the heap.
 
-### The One Ground Rule for This Mindset
+### Be careful: do not try to call methods on null
 
 Because null means "no address in the heap yet," you cannot look inside the object until you actually complete Step 2.
 If you try to call a method while it is still a placeholder:
