@@ -37,7 +37,7 @@ nav:
     - "1.16 Variables and Data Types": unit1/notes_16_variables.md
     - "1.17 Operators and Expressions": unit1/notes_17_operators_and_expressions.md
     - "1.18 Casting and Range of Variables": unit1/notes_18_casting_and_range_of_variables.md
-    - "1.19 Printing Objects": unit1/notes_19_printing_objects.md
+    - "1.19 Objects in Memory": unit1/notes_19_printing_objects.md
     - "1.20 The Math Class": unit1/notes_20_the_math_class.md
     - "1.21 Random numbers": unit1/notes_21_random.md
     - "1.22 String objects": unit1/notes_22_strings.md
