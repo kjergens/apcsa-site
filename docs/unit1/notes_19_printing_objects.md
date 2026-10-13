@@ -44,7 +44,7 @@ System.out.println(alias.getTitle());      // "The Matrix"
 
 ---
 
-## 3. Passing Objects to Methods: Get the Vocabulary Right
+## 3. Passing Object References to Methods
 
 You'll sometimes hear objects described as "passed by reference" in Java. **That's not accurate, and it's worth unlearning now** — the AP exam's own vocabulary (Topic 3.6, "Passing and Returning *References* of an Object") is deliberately precise about it.
 
