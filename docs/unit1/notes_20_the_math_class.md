@@ -88,7 +88,7 @@ On its own, `Math.random()` only gives you a decimal between 0 and 1 — turning
 
     5. In your own words: explain why `Math.sqrt(16)` doesn't require creating a `Math` object first, but `movie.getTitle()` does require creating a `NetflixMovie` object first.
 
-    6. What is the narrowest possible range of values `Math.random()` can return? Can it ever return exactly `1.0`? Exactly `0.0`?
+    6. What is the possible range of values `Math.random()` can return? Can it ever return exactly `1.0`? Exactly `0.0`?
 
     7. Complete the line of code to compute the hypotenuse of a right triangle with legs `3` and `4`, using `Math.sqrt()` and `Math.pow()`:
     ```java
