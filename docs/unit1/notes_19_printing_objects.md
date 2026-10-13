@@ -125,8 +125,7 @@ Once you are ready to use it, you can point that placeholder to an object in one
 
 1. Way A: Creating a brand-new object
 
-```
-java
+``` java
 // You finally know what movie it is!
 favoredMovie = new NetflixMovie("Inception", 2010, "PG-13", 8.8);
 ```
@@ -135,8 +134,7 @@ favoredMovie = new NetflixMovie("Inception", 2010, "PG-13", 8.8);
 
 2. Way B: Pointing it to an existing reference (Aliasing)
 
-```
-java
+``` java
 NetflixMovie matrix = new NetflixMovie("The Matrix", 1999, "R", 8.7);
 
 // You decide this is your favored movie!
@@ -150,8 +148,7 @@ favoredMovie = matrix;
 Because null means "no address in the heap yet," you cannot look inside the object until you actually complete Step 2.
 If you try to call a method while it is still a placeholder:
 
-```
-java
+```java
 NetflixMovie favoredMovie = null;
 System.out.println(favoredMovie.getTitle()); // ❌ CRASH! NullPointerException
 ```
