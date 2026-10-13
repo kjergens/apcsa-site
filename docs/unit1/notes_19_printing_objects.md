@@ -108,7 +108,7 @@ By initializing a variable to null on purpose, you are telling Java: "Hey, I am 
 Here is how that exact mindset maps perfectly to how Java handles memory:
 
 ## 5. Understanding `null`
-## Creating the Placeholder (setting to null)
+### Creating the Placeholder (setting to null)
 
 When you write:
 ``` java
@@ -119,7 +119,7 @@ NetflixMovie favoredMovie = null;
 - On the Heap: Absolutely nothing is created. No memory is used for object data. The stack variable just holds a special blank signpost (null) that says "I point to no address right now."
 - Why it's safe: Because you explicitly gave it the value null, the compiler is happy. It will let your code run, and you can even print it safely.
 
-## Filling the Placeholder Later (Two Options)
+### Filling the Placeholder Later (Two Options)
 
 Once you are ready to use it, you can point that placeholder to an object in one of two ways:
 
