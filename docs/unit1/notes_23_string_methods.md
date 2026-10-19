@@ -135,47 +135,48 @@ String greeting = message.substring(0, 5);   // now greeting holds "Hello"
 ## Homework 1.23 Strings and String methods
 
 !!! attention
-   1. Consider the following code segment:
-   ```java
-   String s1 = "Apple";
-   String s2 = "Apple";
-   String s3 = new String("Apple");
-   String s4 = s1;
 
-   System.out.print((s1 == s2) + " " + (s1 == s3) + " " + (s1 == s4) + " " + s1.equals(s3));
-   ```
-
-   What is printed as a result of executing this code segment?
-  ☐ A) true false true true
-  ☐ B) false false true true
-  ☐ C) true false false true
-  ☐ D) true true true true
-  ☐ E) false false false true
-  
-   2. Consider the following code segment:
+    1. Consider the following code segment:
     ```java
-   String fruit = "banana";
-   fruit.substring(2, 4);
-   fruit += "s";
-   System.out.println(fruit.indexOf("an"));
-   ```
-  What is printed as a result of executing this code segment?
-  ☐ A) 0
-  ☐ B) 1
-  ☐ C) 2
-  ☐ D) 3
-  ☐ E) -1
+    String s1 = "Apple";
+    String s2 = "Apple";
+    String s3 = new String("Apple");
+    String s4 = s1;
 
-   3. Consider the following code segment:
-   ```java
-  String message = "APCSA\n\tClass";
-  int len = message.length();
-  System.out.println(message.substring(len - 1, len + 1));
-  ```
-  What happens when this code segment is executed?
+    System.out.print((s1 == s2) + " " + (s1 == s3) + " " + (s1 == s4) + " " + s1.equals(s3));
+    ```
+
+    What is printed as a result of executing this code segment?
+    ☐ A) true false true true
+    ☐ B) false false true true
+    ☐ C) true false false true
+    ☐ D) true true true true
+    ☐ E) false false false true
   
-  ☐ A) It prints the last character of the string followed by a blank space.
-  ☐ B) It prints the last character of the string successfully.
-  ☐ C) It throws an IndexOutOfBoundsException.
-  ☐ D) It throws a compilation syntax error due to illegal escape characters inside the length bounds.
-  ☐ E) It prints nothing because the substring parameters simplify down to 0.
+    2. Consider the following code segment:
+    ```java
+    String fruit = "banana";
+    fruit.substring(2, 4);
+    fruit += "s";
+    System.out.println(fruit.indexOf("an"));
+    ```
+    What is printed as a result of executing this code segment?
+    ☐ A) 0
+    ☐ B) 1
+    ☐ C) 2
+    ☐ D) 3
+    ☐ E) -1
+
+    3. Consider the following code segment:
+    ```java
+    String message = "APCSA\n\tClass";
+    int len = message.length();
+    System.out.println(message.substring(len - 1, len + 1));
+    ```
+    What happens when this code segment is executed?
+  
+    ☐ A) It prints the last character of the string followed by a blank space.
+    ☐ B) It prints the last character of the string successfully.
+    ☐ C) It throws an IndexOutOfBoundsException.
+    ☐ D) It throws a compilation syntax error due to illegal escape characters inside the length bounds.
+    ☐ E) It prints nothing because the substring parameters simplify down to 0.
