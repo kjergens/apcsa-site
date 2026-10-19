@@ -147,11 +147,11 @@ String greeting = message.substring(0, 5);   // now greeting holds "Hello"
     ```
 
     What is printed as a result of executing this code segment?
-    ☐ A) true false true true
-    ☐ B) false false true true
-    ☐ C) true false false true
-    ☐ D) true true true true
-    ☐ E) false false false true
+    - A) true false true true
+    - B) false false true true
+    - C) true false false true
+    - D) true true true true
+    - E) false false false true
   
     2. Consider the following code segment:
     ```java
@@ -161,11 +161,11 @@ String greeting = message.substring(0, 5);   // now greeting holds "Hello"
     System.out.println(fruit.indexOf("an"));
     ```
     What is printed as a result of executing this code segment?
-    ☐ A) 0
-    ☐ B) 1
-    ☐ C) 2
-    ☐ D) 3
-    ☐ E) -1
+    - A) 0
+    - B) 1
+    - C) 2
+    - D) 3
+    - E) -1
 
     3. Consider the following code segment:
     ```java
@@ -175,8 +175,8 @@ String greeting = message.substring(0, 5);   // now greeting holds "Hello"
     ```
     What happens when this code segment is executed?
   
-    ☐ A) It prints the last character of the string followed by a blank space.
-    ☐ B) It prints the last character of the string successfully.
-    ☐ C) It throws an IndexOutOfBoundsException.
-    ☐ D) It throws a compilation syntax error due to illegal escape characters inside the length bounds.
-    ☐ E) It prints nothing because the substring parameters simplify down to 0.
+    - A) It prints the last character of the string followed by a blank space.
+    - B) It prints the last character of the string successfully.
+    - C) It throws an IndexOutOfBoundsException.
+    - D) It throws a compilation syntax error due to illegal escape characters inside the length bounds.
+    - E) It prints nothing because the substring parameters simplify down to 0.
