@@ -132,7 +132,9 @@ String greeting = message.substring(0, 5);   // now greeting holds "Hello"
 | Calling `message.substring(0, 5);` and expecting `message` itself to change | Strings are immutable — `substring()` returns a new String, it never modifies the original | Assign the result to a variable if you want to keep it |
 | Forgetting that indices start at `0`, not `1` | Same indexing rule as arrays | The first character is always at index `0` |
 
-!!!Attention
+## Homework 1.23 Strings and String methods
+
+!!! attention
    1. Consider the following code segment:
    ```java
    String s1 = "Apple";
