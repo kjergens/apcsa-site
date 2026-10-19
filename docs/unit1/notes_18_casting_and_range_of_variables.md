@@ -130,7 +130,7 @@ Same three values, same operator, two different results — entirely because of 
 | `(double) (totalScore / movieCount)` gives a "whole-looking" decimal like `8.0` | The division inside the parentheses ran first, as `int / int`, truncating — the cast afterward can't recover the lost decimal | Cast a single operand *before* the division: `(double) totalScore / movieCount` |
 | `"Score: " + 5 + 5` prints `"Score: 55"` instead of `"Score: 10"` | `+` evaluates left to right; once a `String` appears, every `+` after it concatenates instead of adding | Put the numeric addition in parentheses first if you want it computed before concatenating: `"Score: " + (5 + 5)` |
 
-## Homework 1.8 Casting and Range of Values
+## Homework 1.18 Casting and Range of Values
 
 !!! attention
 
