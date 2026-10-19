@@ -97,7 +97,7 @@ CED Topics: 1.15
 
 Sometimes you need to include formatting characters in text, such as a tab spacing or a line break, or characters that already have special meaning in Java, like the double quote ("). To do this, you must use an escape sequence. An escape sequence is a combination of characters that represents a special formatting instruction or symbol rather than literal text.
 
-In Java, all escape sequences begin with a backslash (\). This tells the compiler that the character immediately following the backslash should be treated as a special instruction.
+In Java, all escape sequences begin with a backslash (\\). This tells the compiler that the character immediately following the backslash should be treated as a special instruction.
 
 ### Common Java Escape Sequences
 	•	\n — Newline: Moves the text cursor down to the start of the very next line.
