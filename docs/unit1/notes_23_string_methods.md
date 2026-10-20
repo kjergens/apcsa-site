@@ -147,11 +147,12 @@ String greeting = message.substring(0, 5);   // now greeting holds "Hello"
     ```
 
     What is printed as a result of executing this code segment?
-    - A) true false true true
-    - B) false false true true
-    - C) true false false true
-    - D) true true true true
-    - E) false false false true
+    
+     - A) true false true true
+     - B) false false true true
+     - C) true false false true
+     - D) true true true true
+     - E) false false false true
   
     2. Consider the following code segment:
     ```java
@@ -161,11 +162,12 @@ String greeting = message.substring(0, 5);   // now greeting holds "Hello"
     System.out.println(fruit.indexOf("an"));
     ```
     What is printed as a result of executing this code segment?
-    - A) 0
-    - B) 1
-    - C) 2
-    - D) 3
-    - E) -1
+    
+     - A) 0
+     - B) 1
+     - C) 2
+     - D) 3
+     - E) -1
 
     3. Consider the following code segment:
     ```java
@@ -180,3 +182,42 @@ String greeting = message.substring(0, 5);   // now greeting holds "Hello"
     - C) It throws an IndexOutOfBoundsException.
     - D) It throws a compilation syntax error due to illegal escape characters inside the length bounds.
     - E) It prints nothing because the substring parameters simplify down to 0.
+
+    4. What is printed as a result of executing the code segment?
+    ```java
+    String word1 = "Cat";
+    String word2 = "cat";
+
+    if (word1.compareTo(word2) < 0) {
+        System.out.print("1");
+    } else if (word1.compareTo(word2) > 0) {
+        System.out.print("2");
+    } else {
+        System.out.print("3");
+    }
+    ```
+    
+    • A) 1
+    • B) 2
+    • C) 3
+    • D) No output is produced because compareTo returns an exact value, not a boolean condition.
+    • E) A runtime exception is thrown because of case conflict mismatch.
+
+    5. Which of the following can be used to replace /* missing condition */ in the code below so that the method works as intended?
+    ```java
+    public static int findNextWord(String[] list, String target) {
+        for (int i = 0; i < list.length; i++) {
+            /* missing condition */ {
+                return i;
+            }
+        }
+        return -1;
+    }
+    ```
+    
+    • A) if (list[i].compareTo(target) == 1)
+    • B) if (list[i].compareTo(target) > 0)
+    • C) if (target.compareTo(list[i]) > 0)
+    • D) if (list[i].compareTo(target) < 0)
+    • E) if (list[i].equals(target))
+
