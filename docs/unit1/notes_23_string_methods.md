@@ -197,11 +197,11 @@ String greeting = message.substring(0, 5);   // now greeting holds "Hello"
     }
     ```
     
-    • A) 1
-    • B) 2
-    • C) 3
-    • D) No output is produced because compareTo returns an exact value, not a boolean condition.
-    • E) A runtime exception is thrown because of case conflict mismatch.
+    - A) 1
+    - B) 2
+    - C) 3
+    - D) No output is produced because compareTo returns an exact value, not a boolean condition.
+    - E) A runtime exception is thrown because of case conflict mismatch.
 
     5. Which of the following can be used to replace /* missing condition */ in the code below so that the method works as intended?
     ```java
@@ -215,9 +215,9 @@ String greeting = message.substring(0, 5);   // now greeting holds "Hello"
     }
     ```
     
-    • A) if (list[i].compareTo(target) == 1)
-    • B) if (list[i].compareTo(target) > 0)
-    • C) if (target.compareTo(list[i]) > 0)
-    • D) if (list[i].compareTo(target) < 0)
-    • E) if (list[i].equals(target))
+    - A) if (list[i].compareTo(target) == 1)
+    - B) if (list[i].compareTo(target) > 0)
+    - C) if (target.compareTo(list[i]) > 0)
+    - D) if (list[i].compareTo(target) < 0)
+    - E) if (list[i].equals(target))
 
