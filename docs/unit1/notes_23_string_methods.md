@@ -16,6 +16,13 @@ int compareTo(String anotherString)
 - a **positive** number if the calling String comes *after* the argument
 - **`0`** if the two Strings contain exactly the same characters
 
+### How Ordering Works
+
+- **Digits First**: Numbers (0–9) come before uppercase letters.
+- **Uppercase Next**: Uppercase letters (A–Z) come next. A = 65 Z = 90
+- **Lowercase Last**: Lowercase letters (a–z) come after uppercase. a = 97 z = 122
+
+
 ```java
 String firstWord = "Hello";
 String secondWord = "HELLO";
