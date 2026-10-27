@@ -27,18 +27,18 @@ Welcome to APCSA at Columbia Grammar and Preparatory School. This site contains 
 | [1.22 String objects](unit1/notes_22_strings.md) |
 | [1.23 String methods](unit1/notes_23_string_methods.md) |
 | **Unit 2 — Selection and Iteration** |
-| [2.1 Loops](unit2/notes_01_loops.md) |
-| [2.2 Selection Statements](unit2/notes_02_selection_statements.md) |
-| [2.3 Two-Way Selection Statements](unit2/notes_03_two_way_selection_statements.md) |
-| [2.4 Object Aliases and Equality](unit2/notes_04_object_aliases_and_equality.md) |
-| [2.5 Nested If Statements](unit2/notes_05_nested_if_statements.md) |
-| [2.6 Logical Operators](unit2/notes_06_logical_operators.md) |
-| [2.7 De Morgan's Laws](unit2/notes_07_de_morgans_laws.md) |
-| [2.8 Multi-Selection Statements](unit2/notes_08_multi_selection_statements.md) |
-| [2.9 For Loops](unit2/notes_09_for_loops.md) |
+| [2.1 Algorithms with Selection and Repetition](unit2/notes_01_algorithms_selection_repetition.md) |
+| [2.2 Boolean Expressions](unit2/notes_02_boolean_expressions.md) |
+| [2.3 if Statements](unit2/notes_03_if_statements.md) |
+| [2.4 Nested if Statements](unit2/notes_04_nested_if_statements.md) |
+| [2.5 Compound Boolean Expressions](unit2/notes_05_compound_boolean_expressions.md) |
+| [2.6 Comparing Boolean Expressions](unit2/notes_06_comparing_boolean_expressions.md) |
+| [2.7 while Loops](unit2/notes_07_while_loops.md) |
+| [2.8 for Loops](unit2/notes_08_for_loops.md) |
+| [2.9 Implementing Selection and Iteration Algorithms](unit2/notes_09_implementing_selection_and_iteration_algorithms.md) |
 | [2.10 Implementing String Algorithms](unit2/notes_10_implementing_string_algorithms.md) |
 | [2.11 Nested Iteration](unit2/notes_11_nested_iteration.md) |
-| [2.12 Informal Runtime Analysis](unit2/notes_12_informal_runtime_analysis.md) |
+| [2.12 Informal Run-Time Analysis](unit2/notes_12_informal_runtime_analysis.md) |
 | [Project 1: Creative Coding with the Console](unit2/project1.md) |
 | **Unit 3 — Class Creation** |
 | [3.1 Program Design](unit3/notes_01_program_design.md) |
