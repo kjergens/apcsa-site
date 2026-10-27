@@ -55,7 +55,6 @@ nav:
     - "2.10 Implementing String Algorithms": unit2/notes_10_implementing_string_algorithms.md
     - "2.11 Nested Iteration": unit2/notes_11_nested_iteration.md
     - "2.12 Informal Run-Time Analysis": unit2/notes_12_informal_runtime_analysis.md
-    - "Project 1: Creative Coding with the Console": unit2/project1.md
   - "Unit 3 — Class Creation":
     - "3.1 Program Design": unit3/notes_01_program_design.md
     - "3.2 Attributes": unit3/notes_02_attributes.md
