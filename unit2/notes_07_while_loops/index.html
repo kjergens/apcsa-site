@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="author" content="Katie Jergens" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>2.7 while Loops - AP Computer Science A — Columbia Grammar and Preparatory School</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "2.7 while Loops";
+        var mkdocs_page_input_path = "unit2/notes_07_while_loops.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../.." class="icon icon-home"> AP Computer Science A — Columbia Grammar and Preparatory School
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../..">Table of Contents</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Unit 1 — Using Objects and Methods</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../unit1/notes_03_java_lab/">1.3 Java Lab</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../unit1/notes_04_classes_and_objects/">1.4 Classes and Objects</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../unit1/notes_05_instantiating_objects/">1.5 Instantiating Objects</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../unit1/notes_06_methods/">1.6 Methods</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../unit1/notes_07_methods_with_parameters/">1.7 Methods with Parameters</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../unit1/notes_09_writing_methods/">1.9 Writing Methods</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../unit1/notes_10_programming_style_and_feedback/">1.10 Programming Style and Feedback</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../unit1/notes_12_no_argument_constructors/">1.12 No-Argument Constructors</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../unit1/notes_13_parameterized_constructors/">1.13 Parameterized Constructors</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../unit1/notes_14_user_input/">1.14 User Input</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../unit1/notes_14b_composition_and_delegation/">Putting It Together: Composition and Delegation</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../unit1/notes_16_variables/">1.16 Variables and Data Types</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../unit1/notes_17_operators_and_expressions/">1.17 Operators and Expressions</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../unit1/notes_18_casting_and_range_of_variables/">1.18 Casting and Range of Variables</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../unit1/notes_19_printing_objects/">1.19 Objects in Memory</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../unit1/notes_20_the_math_class/">1.20 The Math Class</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../unit1/notes_21_random/">1.21 Random numbers</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../unit1/notes_22_strings/">1.22 String objects</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../unit1/notes_23_string_methods/">1.23 Strings methods</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Unit 2 — Selection and Iteration</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../notes_01_algorithms_selection_repetition/">2.1 Algorithms with Selection and Repetition</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../notes_02_boolean_expressions/">2.2 Boolean Expressions</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../notes_03_if_statements/">2.3 if Statements</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../notes_04_nested_if_statements/">2.4 Nested if Statements</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../notes_05_compound_boolean_expressions/">2.5 Compound Boolean Expressions</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../notes_06_comparing_boolean_expressions/">2.6 Comparing Boolean Expressions</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">2.7 while Loops</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#1-why-iteration-exists">1. Why Iteration Exists</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#2-the-while-loop">2. The while Loop</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#3-infinite-loops">3. Infinite Loops</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#4-tracing-a-while-loop">4. Tracing a while Loop</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#5-a-sentinel-controlled-loop">5. A Sentinel-Controlled Loop</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#common-errors">Common Errors</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#homework-27-while-loops">Homework 2.7 while Loops</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../notes_08_for_loops/">2.8 for Loops</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../notes_09_implementing_selection_and_iteration_algorithms/">2.9 Implementing Selection and Iteration Algorithms</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../notes_10_implementing_string_algorithms/">2.10 Implementing String Algorithms</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../notes_11_nested_iteration/">2.11 Nested Iteration</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../notes_12_informal_runtime_analysis/">2.12 Informal Run-Time Analysis</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Unit 3 — Class Creation</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../unit3/notes_01_program_design/">3.1 Program Design</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../unit3/notes_02_attributes/">3.2 Attributes</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../unit3/notes_03_the_this_keyword/">3.3 The this Keyword</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../unit3/notes_04_accessor_methods/">3.4 Accessor Methods</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../unit3/notes_05_mutator_methods/">3.5 Mutator Methods</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../unit3/notes_06_static_variables_and_methods/">3.6 Static Variables and Methods</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../unit3/notes_07_object_references_as_parameters/">3.7 Object References as Parameters</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../unit3/notes_08_private_methods/">3.8 Private Methods</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Unit 4 — Data Collections</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../unit4/notes_01_data_sets/">4.1 Data Sets</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../unit4/notes_02_one_dimensional_arrays/">4.2 One-Dimensional Arrays</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../unit4/notes_03_modifying_elements/">4.3 Modifying Elements</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../unit4/notes_04_traversing_1d_arrays/">4.4 Traversing 1D Arrays</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../unit4/notes_05_text_files/">4.5 Text Files</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../unit4/notes_06_ethics_in_data/">4.6 Ethics in Data</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../unit4/notes_08_enhanced_for_loops_1d_arrays/">4.8 Enhanced For Loops (1D Arrays)</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../unit4/notes_09_array_algorithms/">4.9 Array Algorithms</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../unit4/notes_10_finding_duplicates/">4.10 Finding Duplicates</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../unit4/notes_11_two_dimensional_arrays/">4.11 Two-Dimensional Arrays</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../unit4/notes_12_2d_array_elements/">4.12 2D Array Elements</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../unit4/notes_13_row_major_traversal/">4.13 Row-Major Traversal</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../unit4/notes_14_column_major_traversal/">4.14 Column-Major Traversal</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../unit4/notes_15_enhanced_for_loops_2d_arrays/">4.15 Enhanced For Loops (2D Arrays)</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../unit4/notes_16_images_in_the_theater/">4.16 Images in the Theater</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../unit4/notes_17_2d_array_algorithms/">4.17 2D Array Algorithms</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../unit4/notes_18_modifying_images/">4.18 Modifying Images</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../unit4/notes_19_integer_and_double_objects/">4.19 Integer and Double Objects</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../unit4/notes_20_arraylists/">4.20 ArrayLists</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../unit4/notes_21_manipulating_elements/">4.21 Manipulating Elements</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../unit4/notes_22_lists_of_objects/">4.22 Lists of Objects</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../unit4/notes_23_removing_elements/">4.23 Removing Elements</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../unit4/notes_24_arraylist_and_string_algorithms/">4.24 ArrayList and String Algorithms</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../unit4/notes_25_recursion/">4.25 Recursion</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../unit4/notes_26_searching/">4.26 Searching</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../unit4/notes_27_binary_search/">4.27 Binary Search</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../unit4/notes_28_selection_sort/">4.28 Selection Sort</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../unit4/notes_29_insertion_sort/">4.29 Insertion Sort</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../unit4/notes_30_merge_sort/">4.30 Merge Sort</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">AP Computer Science A — Columbia Grammar and Preparatory School</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Unit 2 — Selection and Iteration</li>
+      <li class="breadcrumb-item active">2.7 while Loops</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="27-while-loops">2.7 while Loops</h1>
+<p><strong>CED Topics:</strong> 2.7</p>
+<hr />
+<h2 id="1-why-iteration-exists">1. Why Iteration Exists</h2>
+<p>You could repeat an action by just copy-pasting the same line a few times:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"Processing..."</span><span class="p">);</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"Processing..."</span><span class="p">);</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"Processing..."</span><span class="p">);</span>
+</code></pre></div>
+<p>That works only when you already know the exact number of repetitions ahead of time — and it falls apart completely if the number of repetitions isn't known until the program is actually running (how many lines are in a file, how many guesses it takes to get a password right, how long a user keeps answering "yes"). <strong>Iteration</strong> is the building block (from 2.1) that handles "repeat this until some condition says to stop," without you having to know in advance how many times that will be.</p>
+<hr />
+<h2 id="2-the-while-loop">2. The while Loop</h2>
+<p>A <strong><code>while</code> loop</strong> repeatedly runs a block of code for as long as its condition stays <code>true</code>:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="kt">boolean</span><span class="w"> </span><span class="n">expression</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">    </span><span class="n">statement</span><span class="p">;</span><span class="w">   </span><span class="c1">// the loop body</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="p">}</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="kt">int</span><span class="w"> </span><span class="n">count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">count</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">5</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">    </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">count</span><span class="p">);</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">    </span><span class="n">count</span><span class="o">++</span><span class="p">;</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="p">}</span>
+</code></pre></div>
+<p>The condition is checked <strong>before</strong> every single execution of the body — including the very first time. If the condition is <code>false</code> from the start, the body never runs at all, not even once.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">5</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">    </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"This never prints."</span><span class="p">);</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="p">}</span>
+</code></pre></div>
+<hr />
+<h2 id="3-infinite-loops">3. Infinite Loops</h2>
+<p>An <strong>infinite loop</strong> happens when the condition never becomes <code>false</code>, so the loop body keeps running forever (or until the program is forcibly stopped). This almost always happens because something that's supposed to change the condition's outcome — incrementing a counter, reading new input — got left out of the loop body, or placed where it never actually runs.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="kt">int</span><span class="w"> </span><span class="n">count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">count</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">5</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">    </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">count</span><span class="p">);</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="w">    </span><span class="c1">// forgot count++  — count is stuck at 0 forever, loop never ends</span>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="p">}</span>
+</code></pre></div>
+<p>Every <code>while</code> loop needs something inside its body that moves the condition closer to becoming <code>false</code>. Before you run a loop you've written, always ask: "what, inside this loop, is actually changing to eventually make the condition false?"</p>
+<hr />
+<h2 id="4-tracing-a-while-loop">4. Tracing a while Loop</h2>
+<p>Tracing a loop means stepping through it iteration by iteration, tracking how each variable changes and re-checking the condition each time. A table like this makes it easy to follow:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="kt">int</span><span class="w"> </span><span class="n">number</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">number</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="w">    </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">number</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">5</span><span class="p">);</span>
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="w">    </span><span class="n">number</span><span class="o">--</span><span class="p">;</span>
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="p">}</span>
+</code></pre></div>
+<table>
+<thead>
+<tr>
+<th><code>number</code></th>
+<th>Condition (<code>number &gt; 0</code>)</th>
+<th>Prints</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>3</td>
+<td>true</td>
+<td>15</td>
+</tr>
+<tr>
+<td>2</td>
+<td>true</td>
+<td>10</td>
+</tr>
+<tr>
+<td>1</td>
+<td>true</td>
+<td>5</td>
+</tr>
+<tr>
+<td>0</td>
+<td>false</td>
+<td><em>(loop ends)</em></td>
+</tr>
+</tbody>
+</table>
+<p>The condition is checked, then — if true — the body runs, then the variable updates, then it loops back to re-check the condition. The console output is <code>15</code>, <code>10</code>, <code>5</code>.</p>
+<hr />
+<h2 id="5-a-sentinel-controlled-loop">5. A Sentinel-Controlled Loop</h2>
+<p><code>while</code> loops are the natural choice when the number of repetitions depends on something you can't predict ahead of time — like user input. A <strong>sentinel value</strong> is a special input that signals "stop":</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">java.util.Scanner</span><span class="p">;</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="n">Scanner</span><span class="w"> </span><span class="n">scan</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Scanner</span><span class="p">(</span><span class="n">System</span><span class="p">.</span><span class="na">in</span><span class="p">);</span>
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="kt">int</span><span class="w"> </span><span class="n">total</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="kt">int</span><span class="w"> </span><span class="n">input</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">scan</span><span class="p">.</span><span class="na">nextInt</span><span class="p">();</span>
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>
+<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">input</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a><span class="w">    </span><span class="n">total</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">input</span><span class="p">;</span>
+<a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a><span class="w">    </span><span class="n">input</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">scan</span><span class="p">.</span><span class="na">nextInt</span><span class="p">();</span>
+<a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a><span class="p">}</span>
+<a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"Sum: "</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">total</span><span class="p">);</span>
+</code></pre></div>
+<p>This keeps adding numbers to <code>total</code> until the user types <code>-1</code> — there's no way to know in advance how many numbers that will take, which is exactly the situation <code>while</code> is built for.</p>
+<hr />
+<h2 id="common-errors">Common Errors</h2>
+<table>
+<thead>
+<tr>
+<th>Error</th>
+<th>What's actually happening</th>
+<th>Fix</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Writing a <code>while</code> loop with nothing inside it that changes the condition's outcome</td>
+<td>The loop body runs, but the condition never gets closer to <code>false</code> — it runs forever</td>
+<td>Before running a loop, identify exactly which statement makes the condition eventually false, and confirm it's inside the loop body</td>
+</tr>
+<tr>
+<td>Expecting a <code>while</code> loop's body to run at least once</td>
+<td>The condition is checked <em>before</em> the very first execution — if it's false immediately, the body never runs</td>
+<td>Trace the condition's value <em>before</em> the loop starts, not just during it</td>
+</tr>
+<tr>
+<td>Updating the loop-controlling variable in the wrong place (e.g. before the condition check instead of at the end of the body)</td>
+<td>Where the update happens changes which value the condition sees on the <em>next</em> check</td>
+<td>Trace through iteration by iteration with a table — don't just assume the update "happens eventually"</td>
+</tr>
+<tr>
+<td>Confusing <code>while (condition)</code> with <code>if (condition)</code></td>
+<td><code>if</code> runs its body at most once; <code>while</code> repeats its body as long as the condition stays true</td>
+<td>Ask: does this need to happen only once if true (<code>if</code>), or keep happening until false (<code>while</code>)?</td>
+</tr>
+</tbody>
+</table>
+<h2 id="homework-27-while-loops">Homework 2.7 while Loops</h2>
+<div class="admonition attention">
+<p class="admonition-title">Attention</p>
+<ol>
+<li>
+<p>Trace this loop using a table (variable, condition, output per row) and give the full console output:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">4</span><span class="p">;</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="w">    </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">n</span><span class="p">);</span>
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="w">    </span><span class="n">n</span><span class="w"> </span><span class="o">-=</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span>
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="p">}</span>
+</code></pre></div></p>
+</li>
+<li>
+<p>What happens when this code runs? Explain why, in terms of the condition.
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">5</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="w">    </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"Hello"</span><span class="p">);</span>
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="w">    </span><span class="n">x</span><span class="o">++</span><span class="p">;</span>
+<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="p">}</span>
+</code></pre></div></p>
+</li>
+<li>
+<p>Find the bug that causes an infinite loop, and fix it:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">10</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="w">    </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">i</span><span class="p">);</span>
+<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="p">}</span>
+</code></pre></div></p>
+</li>
+<li>
+<p>Write a <code>while</code> loop that prints every multiple of 3 from 3 up to (and including) 30.</p>
+</li>
+<li>
+<p>Write a <code>while</code> loop using a sentinel value of <code>0</code> that keeps a running total of positive integers the user enters, stopping as soon as a <code>0</code> is entered.</p>
+</li>
+<li>
+<p>True or False: a <code>while</code> loop's body is guaranteed to run at least one time. Justify your answer with an example.</p>
+</li>
+<li>
+<p>In your own words, explain what makes a <code>while</code> loop the right choice over an <code>if</code> statement for a situation like "keep asking the user for a password until they get it right."</p>
+</li>
+</ol>
+</div>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../notes_06_comparing_boolean_expressions/" class="btn btn-neutral float-left" title="2.6 Comparing Boolean Expressions"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../notes_08_for_loops/" class="btn btn-neutral float-right" title="2.8 for Loops">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../notes_06_comparing_boolean_expressions/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../notes_08_for_loops/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../..";</script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script>
+      <script src="../../js/nav_scroll_fix.js"></script>
+      <script src="../../js/copyright_footer.js"></script>
+      <script src="../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(false);
+        });
+    </script>
+
+</body>
+</html>

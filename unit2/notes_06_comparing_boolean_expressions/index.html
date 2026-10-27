@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="author" content="Katie Jergens" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>2.6 Comparing Boolean Expressions - AP Computer Science A — Columbia Grammar and Preparatory School</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "2.6 Comparing Boolean Expressions";
+        var mkdocs_page_input_path = "unit2/notes_06_comparing_boolean_expressions.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../.." class="icon icon-home"> AP Computer Science A — Columbia Grammar and Preparatory School
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../..">Table of Contents</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Unit 1 — Using Objects and Methods</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../unit1/notes_03_java_lab/">1.3 Java Lab</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../unit1/notes_04_classes_and_objects/">1.4 Classes and Objects</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../unit1/notes_05_instantiating_objects/">1.5 Instantiating Objects</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../unit1/notes_06_methods/">1.6 Methods</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../unit1/notes_07_methods_with_parameters/">1.7 Methods with Parameters</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../unit1/notes_09_writing_methods/">1.9 Writing Methods</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../unit1/notes_10_programming_style_and_feedback/">1.10 Programming Style and Feedback</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../unit1/notes_12_no_argument_constructors/">1.12 No-Argument Constructors</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../unit1/notes_13_parameterized_constructors/">1.13 Parameterized Constructors</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../unit1/notes_14_user_input/">1.14 User Input</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../unit1/notes_14b_composition_and_delegation/">Putting It Together: Composition and Delegation</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../unit1/notes_16_variables/">1.16 Variables and Data Types</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../unit1/notes_17_operators_and_expressions/">1.17 Operators and Expressions</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../unit1/notes_18_casting_and_range_of_variables/">1.18 Casting and Range of Variables</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../unit1/notes_19_printing_objects/">1.19 Objects in Memory</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../unit1/notes_20_the_math_class/">1.20 The Math Class</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../unit1/notes_21_random/">1.21 Random numbers</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../unit1/notes_22_strings/">1.22 String objects</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../unit1/notes_23_string_methods/">1.23 Strings methods</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Unit 2 — Selection and Iteration</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../notes_01_algorithms_selection_repetition/">2.1 Algorithms with Selection and Repetition</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../notes_02_boolean_expressions/">2.2 Boolean Expressions</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../notes_03_if_statements/">2.3 if Statements</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../notes_04_nested_if_statements/">2.4 Nested if Statements</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../notes_05_compound_boolean_expressions/">2.5 Compound Boolean Expressions</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">2.6 Comparing Boolean Expressions</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#1-equivalent-boolean-expressions">1. Equivalent Boolean Expressions</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#2-de-morgans-laws">2. De Morgan's Laws</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#3-simplifying-boolean-expressions">3. Simplifying Boolean Expressions</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#4-comparing-with-null">4. Comparing with null</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#common-errors">Common Errors</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#homework-26-comparing-boolean-expressions">Homework 2.6 Comparing Boolean Expressions</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../notes_07_while_loops/">2.7 while Loops</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../notes_08_for_loops/">2.8 for Loops</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../notes_09_implementing_selection_and_iteration_algorithms/">2.9 Implementing Selection and Iteration Algorithms</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../notes_10_implementing_string_algorithms/">2.10 Implementing String Algorithms</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../notes_11_nested_iteration/">2.11 Nested Iteration</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../notes_12_informal_runtime_analysis/">2.12 Informal Run-Time Analysis</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Unit 3 — Class Creation</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../unit3/notes_01_program_design/">3.1 Program Design</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../unit3/notes_02_attributes/">3.2 Attributes</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../unit3/notes_03_the_this_keyword/">3.3 The this Keyword</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../unit3/notes_04_accessor_methods/">3.4 Accessor Methods</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../unit3/notes_05_mutator_methods/">3.5 Mutator Methods</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../unit3/notes_06_static_variables_and_methods/">3.6 Static Variables and Methods</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../unit3/notes_07_object_references_as_parameters/">3.7 Object References as Parameters</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../unit3/notes_08_private_methods/">3.8 Private Methods</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Unit 4 — Data Collections</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../unit4/notes_01_data_sets/">4.1 Data Sets</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../unit4/notes_02_one_dimensional_arrays/">4.2 One-Dimensional Arrays</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../unit4/notes_03_modifying_elements/">4.3 Modifying Elements</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../unit4/notes_04_traversing_1d_arrays/">4.4 Traversing 1D Arrays</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../unit4/notes_05_text_files/">4.5 Text Files</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../unit4/notes_06_ethics_in_data/">4.6 Ethics in Data</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../unit4/notes_08_enhanced_for_loops_1d_arrays/">4.8 Enhanced For Loops (1D Arrays)</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../unit4/notes_09_array_algorithms/">4.9 Array Algorithms</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../unit4/notes_10_finding_duplicates/">4.10 Finding Duplicates</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../unit4/notes_11_two_dimensional_arrays/">4.11 Two-Dimensional Arrays</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../unit4/notes_12_2d_array_elements/">4.12 2D Array Elements</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../unit4/notes_13_row_major_traversal/">4.13 Row-Major Traversal</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../unit4/notes_14_column_major_traversal/">4.14 Column-Major Traversal</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../unit4/notes_15_enhanced_for_loops_2d_arrays/">4.15 Enhanced For Loops (2D Arrays)</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../unit4/notes_16_images_in_the_theater/">4.16 Images in the Theater</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../unit4/notes_17_2d_array_algorithms/">4.17 2D Array Algorithms</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../unit4/notes_18_modifying_images/">4.18 Modifying Images</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../unit4/notes_19_integer_and_double_objects/">4.19 Integer and Double Objects</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../unit4/notes_20_arraylists/">4.20 ArrayLists</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../unit4/notes_21_manipulating_elements/">4.21 Manipulating Elements</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../unit4/notes_22_lists_of_objects/">4.22 Lists of Objects</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../unit4/notes_23_removing_elements/">4.23 Removing Elements</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../unit4/notes_24_arraylist_and_string_algorithms/">4.24 ArrayList and String Algorithms</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../unit4/notes_25_recursion/">4.25 Recursion</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../unit4/notes_26_searching/">4.26 Searching</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../unit4/notes_27_binary_search/">4.27 Binary Search</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../unit4/notes_28_selection_sort/">4.28 Selection Sort</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../unit4/notes_29_insertion_sort/">4.29 Insertion Sort</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../unit4/notes_30_merge_sort/">4.30 Merge Sort</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">AP Computer Science A — Columbia Grammar and Preparatory School</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Unit 2 — Selection and Iteration</li>
+      <li class="breadcrumb-item active">2.6 Comparing Boolean Expressions</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="26-comparing-boolean-expressions">2.6 Comparing Boolean Expressions</h1>
+<p><strong>CED Topics:</strong> 2.6</p>
+<hr />
+<h2 id="1-equivalent-boolean-expressions">1. Equivalent Boolean Expressions</h2>
+<p>Two Boolean expressions are <strong>equivalent</strong> if they produce the same result for every possible combination of inputs — even though they're written completely differently. You don't have to guess or trust your intuition to check this: build a <strong>truth table</strong> for both expressions and compare them row by row. If every row matches, the expressions are equivalent.</p>
+<hr />
+<h2 id="2-de-morgans-laws">2. De Morgan's Laws</h2>
+<p><strong>De Morgan's Laws</strong> describe exactly how a <code>!</code> (NOT) distributes across an <code>&amp;&amp;</code> or <code>||</code> — they're not something you need to memorize by name for the exam, but you do need to be able to show two expressions are equivalent, and this is the most common pair that comes up:</p>
+<p>$$!(a \text{ \&amp;\&amp; } b) \equiv !a \text{ } || \text{ } !b$$</p>
+<p>$$!(a \text{ } || \text{ } b) \equiv !a \text{ \&amp;\&amp; } !b$$</p>
+<p>In words: negating an AND flips it into an OR of the negations, and negating an OR flips it into an AND of the negations. The truth table below confirms the first law — the last two columns are identical for every row:</p>
+<table>
+<thead>
+<tr>
+<th>a</th>
+<th>b</th>
+<th><code>!(a &amp;&amp; b)</code></th>
+<th><code>!a \|\| !b</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>true</td>
+<td>true</td>
+<td>false</td>
+<td>false</td>
+</tr>
+<tr>
+<td>true</td>
+<td>false</td>
+<td>true</td>
+<td>true</td>
+</tr>
+<tr>
+<td>false</td>
+<td>true</td>
+<td>true</td>
+<td>true</td>
+</tr>
+<tr>
+<td>false</td>
+<td>false</td>
+<td>true</td>
+<td>true</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kt">boolean</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span><span class="p">;</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="o">!</span><span class="p">(</span><span class="n">a</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">b</span><span class="p">));</span><span class="w">      </span><span class="c1">// true</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="o">!</span><span class="n">a</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="o">!</span><span class="n">b</span><span class="p">);</span><span class="w">       </span><span class="c1">// true — same result, every time</span>
+</code></pre></div>
+<hr />
+<h2 id="3-simplifying-boolean-expressions">3. Simplifying Boolean Expressions</h2>
+<p>De Morgan's Laws are most useful as a tool for <strong>removing an outer <code>!</code></strong> from a compound expression, which usually makes it easier to read. The process is two steps:</p>
+<ol>
+<li>Apply De Morgan's Law: flip <code>&amp;&amp;</code>/<code>||</code>, and push the <code>!</code> onto each individual piece.</li>
+<li>Flip each relational operator to absorb its own <code>!</code> (e.g. <code>!(x &lt; 3)</code> becomes <code>x &gt;= 3</code>).</li>
+</ol>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="o">!</span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span>
+</code></pre></div>
+<p><strong>Step 1</strong> (distribute the <code>!</code>): <code>!(x &lt; 3) || !(y &gt; 2)</code></p>
+<p><strong>Step 2</strong> (flip each relational operator, dropping the <code>!</code>s): <code>(x &gt;= 3 || y &lt;= 2)</code></p>
+<p>These three expressions are all equivalent — the last one is just easier to read at a glance, with no negation to untangle.</p>
+<table>
+<thead>
+<tr>
+<th>Original relational operator</th>
+<th>Flips to (under negation)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>&lt;</code></td>
+<td><code>&gt;=</code></td>
+</tr>
+<tr>
+<td><code>&gt;</code></td>
+<td><code>&lt;=</code></td>
+</tr>
+<tr>
+<td><code>&lt;=</code></td>
+<td><code>&gt;</code></td>
+</tr>
+<tr>
+<td><code>&gt;=</code></td>
+<td><code>&lt;</code></td>
+</tr>
+<tr>
+<td><code>==</code></td>
+<td><code>!=</code></td>
+</tr>
+<tr>
+<td><code>!=</code></td>
+<td><code>==</code></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="4-comparing-with-null">4. Comparing with <code>null</code></h2>
+<p>A very common real use of short-circuit evaluation (from 2.5) is guarding against calling a method on an object that doesn't actually exist yet. If a reference variable is <code>null</code>, calling <em>any</em> method on it crashes the program with a <code>NullPointerException</code>:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="n">String</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">null</span><span class="p">;</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">s</span><span class="p">.</span><span class="na">indexOf</span><span class="p">(</span><span class="s">"a"</span><span class="p">)</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">   </span><span class="c1">// CRASH — s is null, can't call .indexOf() on it</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">    </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">s</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">" contains an a"</span><span class="p">);</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="p">}</span>
+</code></pre></div>
+<p>The fix is to check <code>s != null</code> <strong>first</strong>, in an <code>&amp;&amp;</code>, relying on short-circuiting to skip the dangerous second check whenever the first one already fails:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="n">String</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">null</span><span class="p">;</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">s</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">null</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">s</span><span class="p">.</span><span class="na">indexOf</span><span class="p">(</span><span class="s">"a"</span><span class="p">)</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">    </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">s</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">" contains an a"</span><span class="p">);</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="p">}</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="c1">// no crash — s != null is false, so Java never evaluates s.indexOf("a")</span>
+</code></pre></div>
+<p>This is the same pattern as the <code>x &gt; 0 &amp;&amp; (y / x) == 3</code> divide-by-zero guard from 2.5 — a safety check on the left, short-circuiting to protect a riskier check on the right. <strong>Order matters here too</strong>: <code>s.indexOf("a") &gt;= 0 &amp;&amp; s != null</code> would crash, because the dangerous call now runs first.</p>
+<hr />
+<h2 id="common-errors">Common Errors</h2>
+<table>
+<thead>
+<tr>
+<th>Error</th>
+<th>What's actually happening</th>
+<th>Fix</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Assuming two Boolean expressions are equivalent just because they "look similar"</td>
+<td>Equivalence is only confirmed when every row of both truth tables matches</td>
+<td>Actually build out the truth table rather than eyeballing it</td>
+</tr>
+<tr>
+<td>Forgetting to flip the relational operator when removing a <code>!</code> (e.g. leaving <code>!(x &lt; 3)</code> as <code>x &lt; 3</code>)</td>
+<td>De Morgan's Law removes the <code>!</code>, but the operator itself still has to flip to preserve the original meaning</td>
+<td>Use the flip table: <code>&lt;</code>↔<code>&gt;=</code>, <code>&gt;</code>↔<code>&lt;=</code>, <code>==</code>↔<code>!=</code></td>
+</tr>
+<tr>
+<td>Writing <code>s.someMethod() != null &amp;&amp; s != null</code> (null check second)</td>
+<td>By the time Java reaches a method call on <code>s</code>, it's too late — if <code>s</code> is <code>null</code>, the crash already happened</td>
+<td>Always put the <code>!= null</code> guard <em>first</em> in the <code>&amp;&amp;</code>, so short-circuiting protects the method call</td>
+</tr>
+<tr>
+<td>Applying De Morgan's Law to only one side of an <code>&amp;&amp;</code>/<code>\|\|</code></td>
+<td>Both operands need the <code>!</code> distributed to them, and the connector itself needs to flip</td>
+<td>Apply both steps — flip the connector AND distribute the negation to each operand</td>
+</tr>
+</tbody>
+</table>
+<h2 id="homework-26-comparing-boolean-expressions">Homework 2.6 Comparing Boolean Expressions</h2>
+<div class="admonition attention">
+<p class="admonition-title">Attention</p>
+<ol>
+<li>
+<p>Build the full truth table for <code>!(a || b)</code> and for <code>!a &amp;&amp; !b</code>. Confirm they're equivalent.</p>
+</li>
+<li>
+<p>Simplify <code>!(x &gt;= 10 &amp;&amp; y != 5)</code> using De Morgan's Law — show both steps (distribute the <code>!</code>, then flip each relational operator).</p>
+</li>
+<li>
+<p>Simplify <code>!(x &lt; 0 || y == 0)</code> the same way.</p>
+</li>
+<li>
+<p>Trace this code for <code>x = 4</code>, <code>y = 3</code> and give the printed output:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">2</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="w">    </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"first case"</span><span class="p">);</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="w">    </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"second case"</span><span class="p">);</span>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="p">}</span>
+</code></pre></div></p>
+</li>
+<li>
+<p>Find and fix the bug: this code is supposed to safely check whether a <code>String name</code> contains the letter <code>"z"</code>, but it crashes when <code>name</code> is <code>null</code>.
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">name</span><span class="p">.</span><span class="na">indexOf</span><span class="p">(</span><span class="s">"z"</span><span class="p">)</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="w">    </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"found it"</span><span class="p">);</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="p">}</span>
+</code></pre></div></p>
+</li>
+<li>
+<p>True or False: <code>!(a &amp;&amp; b)</code> is always equivalent to <code>!a &amp;&amp; !b</code>. Justify your answer using a truth table (not just intuition).</p>
+</li>
+<li>
+<p>In your own words, explain why the <em>order</em> of the two conditions matters in <code>s != null &amp;&amp; s.indexOf("a") &gt;= 0</code>, even though <code>&amp;&amp;</code> is mathematically symmetric (A &amp;&amp; B always equals B &amp;&amp; A in a plain truth table).</p>
+</li>
+</ol>
+</div>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../notes_05_compound_boolean_expressions/" class="btn btn-neutral float-left" title="2.5 Compound Boolean Expressions"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../notes_07_while_loops/" class="btn btn-neutral float-right" title="2.7 while Loops">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../notes_05_compound_boolean_expressions/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../notes_07_while_loops/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../..";</script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script>
+      <script src="../../js/nav_scroll_fix.js"></script>
+      <script src="../../js/copyright_footer.js"></script>
+      <script src="../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(false);
+        });
+    </script>
+
+</body>
+</html>
