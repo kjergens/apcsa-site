@@ -91,6 +91,44 @@ A String object is **immutable**, meaning once a String object is created, its a
 
 ---
 
-## /n and /t
+## Escape sequences \n, \t, \"
+
+Sometimes you need to include formatting characters in text, such as a tab spacing or a line break, or characters that already have special meaning in Java, like the double quote ("). To do this, you must use an escape sequence. An escape sequence is a combination of characters that represents a special formatting instruction or symbol rather than literal text.
+
+In Java, all escape sequences begin with a backslash (\\). This tells the compiler that the character immediately following the backslash should be treated as a special instruction.
+
+### Common Java Escape Sequences
+	•	\n — Newline: Moves the text cursor down to the start of the very next line.
+	•	\t — Tab: Inserts a standard horizontal tab indentation space.
+	•	\" — Double Quote: Tells Java to treat the quote symbol as literal text inside your message instead of an indicator that the string has ended.
+
+### Tracing Escape Sequences in Code
+Consider the following example:
+
+```java
+String output = "Java says:\n\t\"Hello World!\"";
+System.out.println(output);
+```
+
+When this code segment executes, it will print:
+
+```
+Java says:
+    "Hello World!"
+```
+
+
+### The Length Trap: Counting Escape Sequences
+Even though an escape sequence takes up two physical keystrokes to write in your source editor (the backslash followed by the character), Java processes it internally as one single character.
+
+```java
+String item = "\n\t\"";
+System.out.println(item.length()); // Prints: 3
+```
+
+When length() evaluates a string, \n is counted as one character, \t is counted as one character, and \" is counted as one character.
+
+
+
 
 

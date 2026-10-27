@@ -111,6 +111,7 @@ A Java double reserves 64 bits: 1 Sign bit, 11 Exponent bits, and 52 Mantissa (b
 ## Homework: 1.16 Variables and Data Types
 
 !!! attention
+
     1. Write either **Stack** or **Heap** for each:
         * location of the actual primitive values (e.g. 5 for `int x = 5;`).
         * location of the actual data of an Object (e.g. "Hello" for `String s = "Hello";`).
@@ -126,7 +127,7 @@ A Java double reserves 64 bits: 1 Sign bit, 11 Exponent bits, and 52 Mantissa (b
     System.out.println(value1 + value2 == 0.3);
     ```  
 
-    - What will be the final value of `a` and `str1` after this code runs?
+    4. What will be the final value of `a` and `str1` after this code runs?
 
     ```java
     int a = 10;

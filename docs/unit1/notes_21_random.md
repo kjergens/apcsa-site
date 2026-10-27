@@ -25,15 +25,36 @@ Walk through it with `min = 1`, `max = 6` — simulating a six-sided die:
 
 ## 2. The Off-By-One Trap
 
-The single most common mistake is leaving out the `+ 1` in step 2:
+The single most common mistake on the AP Exam is forgetting to add 1 to your range modifier. This creates a logical error: your code runs perfectly without crashing, but it will never hit the maximum value.
+
+#### Bug vs. the fix
 
 ```java
-int roll = (int)(Math.random() * (max - min)) + min;   // WRONG
-int roll2 = (int)(Math.random() * (max - min + 1)) + min;   // CORRECT
+// ❌ WRONG: Max is impossible to reach
+int roll = (int)(Math.random() * (max - min)) + min;   
 
+//  CORRECT: Includes all values from min to max
+int roll2 = (int)(Math.random() * (max - min + 1)) + min;  
 ```
 
-With `min = 1`, `max = 6`, this multiplies by `5` instead of `6` — giving truncated values `0, 1, 2, 3, 4`, then adding `min` gives `1, 2, 3, 4, 5`. **The die can never roll a 6.** The range silently loses its top value, and nothing crashes or errors to tell you — the code runs fine, it's just quietly wrong. Whenever you're building a random range, check explicitly: does my scaling factor equal the *count* of possible outcomes, or one less than it?
+
+#### Why the Bug Happens (Using a 6-Sided Die)
+
+If you want a random roll between min = 1 and max = 6, you have 6 possible outcomes (1, 2, 3, 4, 5, 6).
+Look at what happens mathematically when you forget the + 1:
+
+| Step	| ❌ The Buggy Range (max - min) | The Correct Range (max - min + 1) |
+|---|---|---|
+|1. Base |	Math.random() -> [0.0, 0.9999] |	Math.random() -> [0.0, 0.9999] |
+|2. Range	| Multiply by 5 (6 - 1) ->  [0.0, 4.9999] | 	Multiply by 6 (6 - 1 + 1) -> [0.0, 5.9999] |
+|3. Truncate (int) |	Drops decimals -> 0, 1, 2, 3, 4	 | Drops decimals -> 0, 1, 2, 3, 4, 5 |
+|4. Shift + min	| Add 1 -> 1, 2, 3, 4, 5	| Add 1 ->  1, 2, 3, 4, 5, 6 |
+|5. Result	| Missing the 6! (range was too small) |	Perfect 1 to 6 die roll. |
+
+Whenever you write a random range formula, ask yourself: Is my multiplier equal to the total count of possible outcomes?
+
+- To get `N` consecutive integers, your scaling factor must be exactly `N`.
+- Because `Math.random()` excludes 1.0, your multiplier needs to be (max - min + 1) to account for the inclusive upper bound.
 
 ---
 

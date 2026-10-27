@@ -1,4 +1,4 @@
-# 1.19 Printing Objects
+# 1.19 Objects in Memory
 
 **CED Topics:** 1.12–1.13, 2.4, 3.6
 
@@ -44,21 +44,13 @@ System.out.println(alias.getTitle());      // "The Matrix"
 
 ---
 
-## 3. Passing Objects to Methods: Get the Vocabulary Right
+## 3. Passing Object References to Methods
 
 You'll sometimes hear objects described as "passed by reference" in Java. **That's not accurate, and it's worth unlearning now** — the AP exam's own vocabulary (Topic 3.6, "Passing and Returning *References* of an Object") is deliberately precise about it.
 
 **Java is always pass-by-value. No exceptions.** For a primitive, the value copied is the number itself. For an object, the value copied is the *reference* — not the object.
 
 ```java
-public static void rename(NetflixMovie m) {
-    m.setTitle("Renamed!");        // mutates the object the reference points to
-}
-
-public static void replace(NetflixMovie m) {
-    m = new NetflixMovie("New Movie", 2024, "PG", 7.0);   // only reassigns the LOCAL copy
-}
-
 public static void main(String[] args) {
     NetflixMovie movie = new NetflixMovie("Inception", 2010, "PG-13", 8.8);
 
@@ -67,6 +59,14 @@ public static void main(String[] args) {
 
     replace(movie);
     System.out.println(movie.getTitle());    // still "Renamed!" — replace() only reassigned its own copy
+}
+
+public static void rename(NetflixMovie m) {
+    m.setTitle("Renamed!");        // mutates the object the reference points to
+}
+
+public static void replace(NetflixMovie m) {
+    m = new NetflixMovie("New Movie", 2024, "PG", 7.0);   // only reassigns the LOCAL copy
 }
 ```
 
@@ -84,6 +84,7 @@ Here's the payoff of 1.16's stack/heap picture: `println` has to show you *somet
 NetflixMovie movie = new NetflixMovie("Inception", 2010, "PG-13", 8.8);
 System.out.println(movie);
 ```
+
 ```
 NetflixMovie@7a81197d
 ```
@@ -102,20 +103,55 @@ System.out.println(scores);
 
 Same idea, same reason: `scores` is a reference on the stack, the array's actual contents live on the heap, and without a special method to print the *contents*, Java can only report the reference's identity.
 
----
 
-## 5. Writing Your Own `toString()`
+## 5. Understanding `null`
+### Creating the Placeholder (setting to null)
 
-This is why you `@Override toString()` — to replace the inherited, address-based default with one that actually describes your object:
-
-```java
-@Override
-public String toString() {
-    return title + " (" + year + ") | " + rating + " | " + score + "/10";
-}
+When you write:
+``` java
+NetflixMovie favoredMovie = null;
 ```
 
-Now `System.out.println(movie)` prints `Inception (2010) | PG-13 | 8.8/10` instead of a hex code — because `println` is still calling `toString()`, it's just calling *your* version now, which shadows the inherited one. Nothing about *how* `println` works changed; what changed is which `toString()` it finds.
+- On the Stack: Java reserves a small, fixed slot for the variable name favoredMovie.
+- On the Heap: Absolutely nothing is created. No memory is used for object data. The stack variable just holds a special blank signpost (null) that says "I point to no address right now."
+- Why it's safe: Because you explicitly gave it the value null, the compiler is happy. It will let your code run, and you can even print it safely.
+
+### Filling the Placeholder Later (Two Options)
+
+Once you are ready to use it, you can point that placeholder to an object in one of two ways:
+
+1. Creating a brand-new object
+
+``` java
+// You finally know what movie it is!
+favoredMovie = new NetflixMovie("Inception", 2010, "PG-13", 8.8);
+```
+
+* What happens: Java goes to the heap, builds a fresh NetflixMovie object, and drops its new heap address right into your stack placeholder.
+
+2. Pointing it to an existing reference (Aliasing)
+
+``` java
+NetflixMovie matrix = new NetflixMovie("The Matrix", 1999, "R", 8.7);
+
+// You decide this is your favored movie!
+favoredMovie = matrix; 
+```
+
+* What happens: Java looks at the address matrix is already pointing to, and copies that exact same heap address into favoredMovie. Now both names point to the same single movie on the heap.
+
+### Be careful: do not try to call methods on null
+
+Because null means "no address in the heap yet," you cannot look inside the object until you actually complete Step 2.
+If you try to call a method while it is still a placeholder:
+
+```java
+NetflixMovie favoredMovie = null;
+System.out.println(favoredMovie.getTitle()); // ❌ CRASH! NullPointerException
+```
+
+Java crashes because you told it to go to the heap and grab a title, but `favoredMovie` doesn't have a heap address yet!
+
 
 ---
 
@@ -123,7 +159,5 @@ Now `System.out.println(movie)` prints `Inception (2010) | PG-13 | 8.8/10` inste
 
 | Error | What's actually happening | Fix |
 |---|---|---|
-| `System.out.println(someObject)` prints something like `ClassName@1a2b3c` | No `toString()` override — Java is using the inherited default from `Object` | Write your own `toString()` |
 | "I changed it through one variable and a *different* variable also changed!" | Not a bug — both variables were aliases pointing to the same object the whole time | Expected behavior; if you need a truly separate copy, you have to build one explicitly |
 | Assuming a method can permanently redirect a caller's variable to a new object | Confusing mutating the object (visible to the caller) with reassigning the local reference copy (invisible to the caller) | Only changes made *through* the reference are visible outside the method — reassigning the parameter itself never is |
-| Calling it "pass by reference" | Java has no pass-by-reference. The *reference* is passed by value | Say "the reference is copied," not "the object is passed by reference" |
