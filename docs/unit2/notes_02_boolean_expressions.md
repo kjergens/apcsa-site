@@ -102,8 +102,7 @@ Trace it piece by piece:
     boolean x = (8 % 2 == 0) == (10 > 20);
     ```
 
-    5. Write a Boolean expression that is `true` exactly when an `int` variable `n` is divisible by both 2 and leaves no remainder — just using `%` and `==` (you don't need `&&` yet, just the single divisibility test).
+    5. Write a Boolean expression that is `true` exactly when an `int` variable `n` is divisible by 2 and leaves no remainder — just using `%` and `==`.
 
-    6. Assume `int x` and `int y` have been declared and initialized. Write values for `x` and `y` that make `(x >= 10) == (y < 12)` evaluate to `true`. Then write a different pair of values that also makes it `true`.
+    6. Explain in your own words why `==` behaves differently for objects than for primitives like `int`.
 
-    7. Explain in your own words why `==` behaves differently for objects than for primitives like `int`.
