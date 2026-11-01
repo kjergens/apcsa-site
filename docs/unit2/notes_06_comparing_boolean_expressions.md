@@ -166,16 +166,17 @@ This is the same pattern as the `x > 0 && (y / x) == 3` divide-by-zero guard fro
 
     7. In your own words, explain why the *order* of the two conditions matters in `s != null && s.indexOf("a") >= 0`, even though `&&` is mathematically symmetric (A && B always equals B && A in a plain truth table).
 
-    8. `A` and `B` are booleans. This question uses the compact logic notation from section 2 above: `¬` for NOT (same as `!`), `·` for AND (same as `&&`), `+` for OR (same as `||`), `1` for `true`, `0` for `false`.
+    8. `A` and `B` are booleans. This question uses `·` for AND (same as `&&`), `+` for OR (same as `||`), `1` for `true`, `0` for `false`.
 
         a. Build a truth table (all 4 rows of `A`, `B`) for `¬(A + B)` and for `¬A · ¬B`. Do the two columns match on every row?
 
         b. Simplify each of the following down to the fewest symbols possible:
+
         - `A · 1`
         - `A + 0`
-        - `A + ¬A`
-        - `¬(¬A)`
-        - `¬(A + B)`
-        - `¬(A · B)`
-        - `¬(A · ¬B)`
+        - `A + !A`
+        - `!(!A)`
+        - `!(A + B)`
+        - `!(A · B)`
+        - `!(A · !B)`
         - `A + AB + AC + AD`

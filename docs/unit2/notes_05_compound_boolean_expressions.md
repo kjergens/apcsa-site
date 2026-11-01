@@ -11,7 +11,7 @@ A **compound Boolean expression** combines two or more Boolean expressions into 
 | Operator | Name | Meaning |
 |---|---|---|
 | `&&` | AND | `true` only if **both** sides are `true` |
-| `\|\|` | OR | `true` if **either** side (or both) is `true` |
+| `||` | OR | `true` if **either** side (or both) is `true` |
 | `!` | NOT | flips a Boolean value — `true` becomes `false` and vice versa |
 
 You've already seen `!` once, inside `!=`. On its own, `!` negates whatever Boolean expression follows it: `!(x > 5)` is `true` exactly when `x > 5` is `false`.
@@ -30,7 +30,7 @@ boolean getsDiscount = (age < 12) || (age >= 65);   // either qualifies
 
 A **truth table** lists every possible combination of `true`/`false` inputs and shows what the compound expression evaluates to for each one. For two Boolean values `P` and `Q`:
 
-| P | Q | `P && Q` | `P \|\| Q` |
+| P | Q | `P && Q` | `P || Q` |
 |---|---|---|---|
 | true | true | true | true |
 | true | false | false | true |
@@ -84,8 +84,8 @@ if (x > 0 && (y / x) == 3) {
 |---|---|---|
 | Writing `x > 0 && (y / x) == 3` with the operands in the wrong order when `x` might be `0` | `&&` evaluates left to right — a risky calculation on the right only stays safe if the left side's guard condition comes first | Put the "is it safe to continue" check on the left, so short-circuiting protects the riskier check on the right |
 | Assuming `&&` always evaluates both sides | Java stops at the first side that already determines the answer — the second side may never run at all | Don't rely on side effects (like a method call with a printout) in the second half of `&&`/`\|\|` — it might get skipped |
-| Misreading `!` combined with `&&`/`\|\|` | `!` only negates whatever expression directly follows it, and binds *tighter* than `&&`/`\|\|` | Use parentheses to make exactly what's being negated explicit, don't rely on memorized precedence under time pressure |
-| Confusing `&&`'s truth table with `\|\|`'s | They differ in exactly one row each — easy to mix up without actually building the table | When unsure, build the 4-row table rather than guessing from memory |
+| Misreading `!` combined with `&&`/`||` | `!` only negates whatever expression directly follows it, and binds *tighter* than `&&`/`||` | Use parentheses to make exactly what's being negated explicit, don't rely on memorized precedence under time pressure |
+| Confusing `&&`'s truth table with `||`'s | They differ in exactly one row each — easy to mix up without actually building the table | When unsure, build the 4-row table rather than guessing from memory |
 
 ## Homework 2.5 Compound Boolean Expressions
 
