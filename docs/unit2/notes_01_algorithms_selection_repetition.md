@@ -1,3 +1,14 @@
+# Introduction to Unit 2
+
+Algorithms are composed of three building blocks: sequencing, selection, and iteration. While
+Unit 1 introduced sequencing, this unit focuses on selection and iteration. Selection is important to a computer program because it gives the programmer the ability to make a decision and respond to that decision using conditional statements. These allow programmers to incorporate choice into their programs: to create games that react to user interactions, to develop simulations that are more real world by allowing for variability, or to discover new knowledge in
+a sea of information by filtering out irrelevant data. Iteration is a form of repetition and changes 
+the flow of control by repeating a segment of code. It is represented by while and for
+loops. In addition, you will build on the introduction of Boolean variables in Unit 1 by writing
+Boolean expressions with relational and logical operators. This unit also introduces several
+standard algorithms that use iteration. Knowledge of standard algorithms makes solving similar
+problems easier, as algorithms can be modified or combined to suit new situations.
+
 # 2.1 Algorithms with Selection and Repetition
 
 **CED Topics:** 2.1
