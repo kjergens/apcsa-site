@@ -69,7 +69,19 @@ Why it works: if `A` is `1`, the whole expression is already `1` regardless of `
 
 ---
 
-## 5. Simplifying Boolean Expressions
+## 5. Redundant Rule
+
+The inverse of a term can be removed if it is part of subsequent terms. E.g. 
+
+`A + (!A)B = A + B  // The inverse of A, !A, was removed from the second term.` 
+
+Justification:
+
+- If A is true it will short circuit (ignore the rest of expression).
+- If A is false !A is true (1) red
+---
+
+## 6. Simplifying Boolean Expressions
 
 De Morgan's Laws are most useful as a tool for **removing an outer `!`** from a compound expression, which usually makes it easier to read. The process is two steps:
 
@@ -97,7 +109,7 @@ These three expressions are all equivalent — the last one is just easier to re
 
 ---
 
-## 6. Comparing with `null`
+## 7. Comparing with `null`
 
 A very common real use of short-circuit evaluation (from 2.5) is guarding against calling a method on an object that doesn't actually exist yet. If a reference variable is `null`, calling *any* method on it crashes the program with a `NullPointerException`:
 
