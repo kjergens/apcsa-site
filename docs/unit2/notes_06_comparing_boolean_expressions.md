@@ -78,7 +78,7 @@ The inverse of a term can be removed if it is part of subsequent terms. E.g.
 Justification:
 
 - If A is true it will short circuit (ignore the rest of expression).
-- If A is false !A is true (1) red
+- If A is false !A is true (1) and not needed
 ---
 
 ## 6. Simplifying Boolean Expressions
