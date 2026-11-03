@@ -17,7 +17,7 @@ When reasoning about several boolean variables at once — especially in a truth
 | Operation | Logic notation | Java | Meaning |
 |---|---|---|---|
 | NOT | `¬A` | `!A` | Invert the value |
-| AND | `A · B` | `A && B` | Both must be true |
+| AND | `A · B`, `A * B` | `A && B` | Both must be true |
 | OR | `A + B` | `A \|\| B` | At least one must be true |
 
 `true` is written as **1** and `false` as **0**. These symbols aren't arbitrary: AND behaves exactly like multiplication — if any part of an `·` chain is `0`, the whole thing is `0`, the same "zeroing out" that makes short-circuit evaluation (2.5) skip the rest of an `&&` once the left side is `false` — and `·` genuinely does evaluate before `+`, the same way multiplication evaluates before addition and `&&` evaluates before `||`. The rest of this page sticks with Java's own `&&`/`||`/`!`; this compact form is here for when a truth table has enough variables that the longer syntax stops fitting.
