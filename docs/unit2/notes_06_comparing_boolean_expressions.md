@@ -26,15 +26,11 @@ When reasoning about several boolean variables at once — especially in a truth
 
 ## 3. De Morgan's Laws
 
-**De Morgan's Laws** describe exactly how a `!` (NOT) distributes across an `&&` or `||` — they're not something you need to memorize by name for the exam, but you do need to be able to show two expressions are equivalent, and this is the most common pair that comes up:
+**De Morgan's Laws** describe exactly how a `!` (NOT) distributes across an `&&` or `||` .
 
-$$!(a \text{ \&\& } b) \equiv !a \text{ } || \text{ } !b$$
+Negating an AND flips it into an OR of the negations, and negating an OR flips it into an AND of the negations. The truth table below confirms the first law — the last two columns are identical for every row:
 
-$$!(a \text{ } || \text{ } b) \equiv !a \text{ \&\& } !b$$
-
-In words: negating an AND flips it into an OR of the negations, and negating an OR flips it into an AND of the negations. The truth table below confirms the first law — the last two columns are identical for every row:
-
-| a | b | `!(a && b)` | `!a \|\| !b` |
+| a | b | `!(a && b)` | `!a || !b` |
 |---|---|---|---|
 | true | true | false | false |
 | true | false | true | true |
