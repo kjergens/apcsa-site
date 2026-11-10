@@ -132,7 +132,7 @@ Neither loop can do something the other can't — the choice is about which one 
 
 !!! attention
 
-    1. Trace this loop with a table and give the full console output:
+    1. Give the output:
     ```java
     for (int i = 5; i >= 1; i--) {
         System.out.println(i * i);
