@@ -124,7 +124,7 @@ Each pattern is independent â€” tracing one doesn't require tracing the others â
 
 !!! attention
 
-    1. Do all 3 parts: (a) Trace the variables. In other words, list all values of total and i during the course of this loop. (b) Give the final printed value. (c) Explain why the total arrives at its value.
+    1. For the code snippet below: (a) Trace the variables (list all values of `total` and `i` during the course of this loop). <br>(b) Give the final printed value. <br>(c) Explain why `total` arrives at its final value.
     ```java
     int total = 0;
     for (int i = 1; i <= 4; i++) {
