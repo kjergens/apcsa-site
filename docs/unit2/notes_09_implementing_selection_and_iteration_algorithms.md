@@ -134,14 +134,16 @@ Each pattern is independent â€” tracing one doesn't require tracing the others â
     System.out.println(total);
     ```
 
-    2. This code scans inputs. Assume the inputs are `3, -1, 7, -2, 5` (in that order) and give the final values of `total`, `count`, and `max`:
+    2. This code scans inputs. Assume the inputs are `3, -1, 7, -2, 5` (in that order). Give the final values of `total`, `count`, and `max`:
     ```java
-    int total = 0, count = 0, max = Integer.MIN_VALUE;
+    int total = 0;
+    int count = 0;
+    int max = Integer.MIN_VALUE;
     for (int i = 0; i < 5; i++) {
         int value = scan.nextInt();
         total += value;
-        if (value > max) { max = value; }
-        if (value > 0) { count++; }
+        if (value > max) max = value; // Note: You don't need braces for single-instruction if-blocks.
+        if (value > 0) count++; 
     }
     ```
 
