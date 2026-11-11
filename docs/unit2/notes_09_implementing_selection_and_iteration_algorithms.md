@@ -124,7 +124,7 @@ Each pattern is independent â€” tracing one doesn't require tracing the others â
 
 !!! attention
 
-    1. Trace this code and give the final printed value. Explain what's wrong with it:
+    1. Do all 3 parts: (a) Trace the variables. In other words, list all values of total and i during the course of this loop. (b) Give the final printed value. (c) Explain why the total arrives at its value.
     ```java
     int total = 0;
     for (int i = 1; i <= 4; i++) {
@@ -132,19 +132,9 @@ Each pattern is independent â€” tracing one doesn't require tracing the others â
         total += i;
     }
     System.out.println(total);
-    ```
+     ```
 
-    2. Write a loop that reads 8 integers from a `Scanner` and prints their sum.
-
-    3. Write a loop that reads 8 integers from a `Scanner` and counts how many of them are negative.
-
-    4. Write a loop that reads 6 integers from a `Scanner` and finds the *smallest* one. Seed it correctly â€” explain in a comment why you seeded it the way you did.
-
-    5. Explain, with a concrete example, why seeding a "find the maximum" accumulator with `0` can give the wrong answer.
-
-    6. Write a single loop that reads 5 integers and reports both the sum and the count of how many were even, using two separate accumulators.
-
-    7. Trace this code for the inputs `3, -1, 7, -2, 5` (in that order) and give the final values of `total`, `count`, and `max`:
+    2. This code scans inputs. Assume the inputs are `3, -1, 7, -2, 5` (in that order) and give the final values of `total`, `count`, and `max`:
     ```java
     int total = 0, count = 0, max = Integer.MIN_VALUE;
     for (int i = 0; i < 5; i++) {
@@ -154,3 +144,15 @@ Each pattern is independent â€” tracing one doesn't require tracing the others â
         if (value > 0) { count++; }
     }
     ```
+
+    3. Read the section on finding a maximum above then briefly explain a situation in which seeding a "find the maximum" accumulator with `0` can give the wrong answer.
+   
+    4. Write a loop that reads 8 integers from a `Scanner` and prints their sum.
+
+    5. Write a loop that reads 8 integers from a `Scanner` and counts how many of them are negative.
+
+    6. Write a loop that reads 6 integers from a `Scanner` and finds the *smallest* one. (HINT: Read above about seeding).
+
+    7. Write a single loop that reads 5 integers and reports both the sum and the count of how many were even, using two separate accumulators.
+
+
