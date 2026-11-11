@@ -132,7 +132,7 @@ Each pattern is independent â€” tracing one doesn't require tracing the others â
         total += i;
     }
     System.out.println(total);
-     ```
+    ```
 
     2. This code scans inputs. Assume the inputs are `3, -1, 7, -2, 5` (in that order) and give the final values of `total`, `count`, and `max`:
     ```java
